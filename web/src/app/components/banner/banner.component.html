@@ -1,0 +1,13 @@
+<section class="banner-area" *ngIf="input" [ngClass]="{ sm_text: input.small }">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1>{{ input.title | translate }}</h1>
+        @for (route of input.routes; track route; let i = $index) {
+        <a href="{{ route.path }}">{{ route.title | translate }}</a>
+        <span *ngIf="i < input.routes.length - 1"> | </span>
+        }
+      </div>
+    </div>
+  </div>
+</section>

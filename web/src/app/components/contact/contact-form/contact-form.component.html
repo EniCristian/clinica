@@ -1,0 +1,71 @@
+<section class="contact-form section-padding3">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 mb-5 mb-lg-0" *ngIf="contactInformation">
+        <div class="d-flex">
+          <div class="into-icon">
+            <i class="fa fa-home"></i>
+          </div>
+          <div class="info-text">
+            <h3>
+              {{ contactInformation.address.city }},
+              {{ contactInformation.address.country }}
+            </h3>
+            <p>{{ contactInformation.address.street }}</p>
+          </div>
+        </div>
+        <div class="d-flex">
+          <div class="into-icon">
+            <i class="fa fa-phone"></i>
+          </div>
+          <div class="info-text">
+            <h3>{{ contactInformation.phoneNumber }}</h3>
+            <p>{{ contactInformation.schedule }}</p>
+          </div>
+        </div>
+        <div class="d-flex">
+          <div class="into-icon">
+            <i class="fa fa-envelope-o"></i>
+          </div>
+          <div class="info-text">
+            <h3>{{ contactInformation.email }}</h3>
+            <p>{{ "general_email_answer_message" | translate }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <form action="#">
+          <div class="left">
+            <input
+              type="text"
+              placeholder="{{ 'forms_enter_name' | translate }}"
+              required
+            />
+            <input
+              type="email"
+              placeholder="{{ 'forms_enter_email' | translate }}"
+              required
+            />
+            <input
+              type="text"
+              placeholder="{{ 'forms_enter_subject' | translate }}"
+              required
+            />
+          </div>
+          <div class="right">
+            <textarea
+              name="message"
+              cols="20"
+              rows="7"
+              placeholder="{{ 'forms_enter_message' | translate }}"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="template-btn">
+            {{ "forms_send" | translate }}
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

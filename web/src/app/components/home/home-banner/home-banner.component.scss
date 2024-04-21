@@ -1,0 +1,31 @@
+/* 5. Banner */
+@import "../../../../styling/variable";
+@import "../../../../styling/mixin";
+.banner-area {
+  padding: 400px 0 350px;
+  background-color: $placeholder;
+  background-image: url("../../../../assets/images/banner-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  @include tablet() {
+    padding: 280px 0;
+  }
+  @include landscape-phone() {
+    padding: 250px 0;
+  }
+  @include portrait-phone() {
+    padding: 200px 0;
+  }
+  &.sm_text {
+    padding: 220px 0 170px;
+    a {
+      color: #777;
+      -webkit-transition: 0.3s;
+      -moz-transition: 0.3s;
+      -o-transition: 0.3s;
+      transition: 0.3s;
+    }
+  }
+}

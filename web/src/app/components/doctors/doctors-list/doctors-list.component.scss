@@ -1,0 +1,9 @@
+.specialist-area {
+  background: #f9f9fd;
+}
+.fit-vertical {
+  //makee all children same height
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

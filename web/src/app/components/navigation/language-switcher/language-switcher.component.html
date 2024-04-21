@@ -1,0 +1,12 @@
+<div class="language-switcher">
+  <img
+    (click)="changeLanguage()"
+    *ngIf="language === 'ro-RO'"
+    src="../../../assets/images/flags/english.png"
+  />
+  <img
+    (click)="changeLanguage()"
+    *ngIf="language === 'en-US'"
+    src="../../../assets/images/flags/romanian.png"
+  />
+</div>

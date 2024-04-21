@@ -1,0 +1,11 @@
+<section class="feature-area section-padding" *ngIf="qualities">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-6" *ngFor="let item of qualities">
+        <div class="quality-item">
+          <app-clinic-quality [clinicQuality]="item"></app-clinic-quality>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

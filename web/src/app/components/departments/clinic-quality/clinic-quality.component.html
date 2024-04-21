@@ -1,0 +1,7 @@
+<div class="single-feature text-center item-padding" *ngIf="clinicQuality">
+  <img src="{{ clinicQuality.imagePath }}" alt="" />
+  <h3>{{ clinicQuality.title | translate }}</h3>
+  <p class="pt-3">
+    {{ clinicQuality.description | translate }}
+  </p>
+</div>

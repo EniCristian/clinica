@@ -1,0 +1,19 @@
+<section class="specialist-area section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+        <div class="section-top text-center">
+          <h2>{{ "doctors_our_doctors" | translate }}</h2>
+          <p>
+            {{ "doctors_our_doctors_description" | translate }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="doctors">
+      <div class="col-lg-3 col-sm-6 fit-vertical" *ngFor="let item of doctors">
+        <app-doctor [doctor]="item"></app-doctor>
+      </div>
+    </div>
+  </div>
+</section>

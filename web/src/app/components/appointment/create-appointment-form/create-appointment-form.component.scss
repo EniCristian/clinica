@@ -1,0 +1,66 @@
+.single-patient {
+  background: #f9f9fd;
+  padding: 40px 80px 20px 40px;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  margin-top: 90px;
+  &:hover {
+    background: #fff;
+    -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  }
+  img {
+    margin-bottom: 24px;
+    width: 100px;
+    height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    margin-top: -90px;
+  }
+}
+.appointment-form {
+  padding: 80px;
+  background-image: url("../../../../assets/images/patient.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+  h3 {
+    font-size: 24px !important;
+    color: #fff !important;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    top: -5%;
+    right: -30%;
+    width: 60%;
+    height: 110%;
+    border: 10px solid #f9f9f9;
+    z-index: -1;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+      to top right,
+      rgba(21, 228, 253, 0.9),
+      rgba(36, 76, 253, 0.9)
+    );
+    z-index: -1;
+  }
+  .form-group {
+    margin-bottom: 1rem;
+  }
+}

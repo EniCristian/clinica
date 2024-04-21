@@ -1,0 +1,22 @@
+[
+  {
+    "imagePath": "assets/images/feature1.png",
+    "title": "qualities_advance_technology",
+    "description": "qualities_advance_technology_description"
+  },
+  {
+    "imagePath": "assets/images/feature2.png",
+    "title": "qualities_comfortable_place",
+    "description": "qualities_comfortable_place_description"
+  },
+  {
+    "imagePath": "assets/images/feature3.png",
+    "title": "qualities_quality_equipment",
+    "description": "qualities_quality_equipment_description"
+  },
+  {
+    "imagePath": "assets/images/feature4.png",
+    "title": "qualities_friendly_staff",
+    "description": "qualities_friendly_staff_description"
+  }
+]

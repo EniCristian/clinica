@@ -1,0 +1,79 @@
+@import "../../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../../node_modules/bootstrap/scss/mixins";
+@import "../../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../styling/variable";
+@import "../../../../styling/mixin";
+
+.single-doctor {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .content-area {
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+  }
+  &:hover {
+    .content-area {
+      @include box-shadow(0 5px 20px $shadow);
+    }
+    .doctor-name {
+      background: $gradient;
+      h3,
+      h6 {
+        color: $light;
+      }
+    }
+  }
+}
+img {
+  @include tablet() {
+    width: 100%;
+  }
+  @include portrait-phone() {
+    width: 100%;
+  }
+  width: -webkit-fill-available;
+  height: 300px;
+}
+.content-area {
+  @include box-shadow(0 0 5px $shadow);
+  @include transition(0.5s);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.doctor-name {
+  padding: 20px;
+  background: $dark;
+  @include transition(0.5s);
+  h3,
+  h6 {
+    @include transition(0.5s);
+  }
+}
+.doctor-text {
+  background: $light;
+  padding: 15px;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+.doctor-icon {
+  li {
+    display: inline;
+    margin: 0 7px;
+    a {
+      color: $body-text;
+      @include transition(0.3s);
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}

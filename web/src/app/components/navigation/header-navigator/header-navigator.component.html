@@ -1,0 +1,12 @@
+<nav id="nav-menu-container">
+  <ul class="nav-menu">
+    <li *ngFor="let link of links" [class.active]="menu === link.moduleName">
+      <a [href]="link.path">{{ link.title | translate }}</a>
+      <ul *ngIf="link.submenu.length > 0">
+        <li *ngFor="let sublink of link.submenu">
+          <a [href]="sublink.path">{{ sublink.title | translate }}</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>

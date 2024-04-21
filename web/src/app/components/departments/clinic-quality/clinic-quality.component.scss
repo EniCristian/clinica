@@ -1,0 +1,22 @@
+.single-feature {
+  background: #f9f9fd;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  height: 350px;
+  &:hover {
+    background: #fff;
+    -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  }
+  img {
+    margin-bottom: 40px;
+  }
+}
