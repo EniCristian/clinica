@@ -1,0 +1,26 @@
+<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="title" xml:space="preserve">
+        <value>Acasa</value>
+    </data>
+    <data name="scope" xml:space="preserve">
+        <value>Iti facem viata mai buna</value>
+    </data>
+    <data name="motto" xml:space="preserve">
+        <value>Lider în domeniul medical</value>
+    </data>
+    <data name="description" xml:space="preserve">
+        <value>Experimentați excelența în îngrijire la clinica noastră, unde compasiunea se întâlnește cu expertiza pentru a vă asigura că starea dvs. de bine strălucește cel mai intens.</value>
+    </data>
+</root>

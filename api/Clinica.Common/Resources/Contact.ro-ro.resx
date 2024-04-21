@@ -1,0 +1,33 @@
+<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="title" xml:space="preserve">
+        <value>Contact</value>
+    </data>
+    <data name="contact_us" xml:space="preserve">
+        <value>Contactaţi-ne</value>
+    </data>
+    <data name="emergency_hotline" xml:space="preserve">
+        <value>Linia de urgență</value>
+    </data>
+    <data name="support_message" xml:space="preserve">
+        <value>Oferim asistență clienți 24/7. Vă rugăm să nu ezitați să ne contactați
+pentru caz de urgenta.</value>
+    </data>
+    <data name="call_now" xml:space="preserve">
+        <value>Suna acum</value>
+    </data>
+    <data name="find_location" xml:space="preserve">
+        <value>Gaseste-ne pe harta</value>
+    </data>
+</root>

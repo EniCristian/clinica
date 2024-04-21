@@ -1,0 +1,29 @@
+<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="newsletter" xml:space="preserve">
+        <value>Buletin informativ</value>
+    </data>
+    <data name="instagram_feed" xml:space="preserve">
+        <value>Urmareste-ne pe Instagram</value>
+    </data>
+    <data name="subscribe_now" xml:space="preserve">
+        <value>Aboneaza-te</value>
+    </data>
+    <data name="newsletter_message" xml:space="preserve">
+        <value>Poți avea încredere în noi. Trimitem doar oferte promoționale.</value>
+    </data>
+    <data name="top_services" xml:space="preserve">
+        <value>Top servicii</value>
+    </data>
+</root>

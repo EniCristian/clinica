@@ -1,0 +1,126 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Update="Resources\Forms.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>Forms.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Qualities.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>Qualities.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Qualities.ro-Ro.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>Qualities.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Qualities.ru-Ru.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>Qualities.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\General.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>General.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Contact.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Contact.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\User.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>User.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Home.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Home.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Doctors.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Doctors.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Blog.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Blog.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Departments.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Departments.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Appointment.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Appointment.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Footer.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Footer.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Resources\Forms.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Forms.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Qualities.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Qualities.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\General.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>General.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Contact.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Contact.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\User.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>User.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Home.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Home.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Doctors.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Doctors.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Blog.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Blog.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Departments.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Departments.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Appointment.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Appointment.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Footer.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Footer.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.4" />
+    </ItemGroup>
+
+</Project>
