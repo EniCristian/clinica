@@ -8,9 +8,13 @@ namespace Clinica.EndpointDefinitions.Translations;
 
 public static class TranslationsHandlers
 {
-    public static  async Task<IResult> GetTranslationsAsync([FromHeader(Name = "Accept-Language")] string locale,  [FromServices] IMediator mediator)
+    public static async Task<IResult> GetTranslationsAsync([FromHeader(Name = "Accept-Language")] string? locale, [FromServices] IMediator mediator)
     {
         CultureInfo cultureInfo;
+        if (!string.IsNullOrWhiteSpace(locale))
+        {
+            locale = locale.Split(',').FirstOrDefault();
+        }
 
         try
         {
@@ -20,7 +24,7 @@ public static class TranslationsHandlers
         {
             cultureInfo = new CultureInfo(TranslationConstants.DefaultCulture);
         }
-        
+
         var translations = await mediator.Send(new TranslationsQuery(cultureInfo));
         return Results.Ok(translations);
     }

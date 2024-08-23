@@ -1,4 +1,3 @@
-using Clinica.Application.Queries;
 using Clinica.Application.Queries.ContactInformation;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
