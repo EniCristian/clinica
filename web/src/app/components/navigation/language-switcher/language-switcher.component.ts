@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { UserLanguageService } from '../../../common/translate/user-language.service';
 import { environment } from '../../../environments/environment';
-import { CommonModule, registerLocaleData } from '@angular/common';
+import { registerLocaleData } from '@angular/common';
+import { debug } from 'console';
 
 @Component({
   selector: 'app-language-switcher',
@@ -10,12 +11,13 @@ import { CommonModule, registerLocaleData } from '@angular/common';
   styleUrl: './language-switcher.component.scss',
 })
 export class LanguageSwitcherComponent implements OnInit {
-  language: string = 'ro-RO';
+  language: string = environment.defaultLanguage;
   constructor(
     private translate: TranslateService,
     private userLanguageService: UserLanguageService
   ) {
     this.translate.addLangs(['ro-RO', 'en-US']);
+    this.language = this.userLanguageService.language;
     this.translate.setDefaultLang(environment.defaultLanguage);
     userLanguageService.userLanguage.subscribe((language) => {
       this.language = language;

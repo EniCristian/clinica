@@ -6,7 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
 @NgModule({
   declarations: [],
   providers: [],
-  imports: [CommonModule, TranslateModule, HttpClientModule],
-  exports: [CommonModule, TranslateModule, HttpClientModule],
+  imports: [CommonModule, TranslateModule],
+  exports: [CommonModule, TranslateModule],
 })
 export class CommonsModule {}

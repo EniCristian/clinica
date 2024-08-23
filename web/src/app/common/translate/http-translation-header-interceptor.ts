@@ -1,12 +1,13 @@
 import {
+  HTTP_INTERCEPTORS,
   HttpEvent,
   HttpHandler,
   HttpInterceptor,
   HttpRequest,
 } from '@angular/common/http';
-import { UserLanguageService } from './user-language.service';
+import { Injectable, Provider } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Injectable } from '@angular/core';
+import { UserLanguageService } from './user-language.service';
 
 @Injectable()
 export class HttpTranslationHeaderInterceptor implements HttpInterceptor {
@@ -21,6 +22,13 @@ export class HttpTranslationHeaderInterceptor implements HttpInterceptor {
         'Accept-Language': this.languageService.language,
       },
     });
+    console.log(request);
     return next.handle(request);
   }
 }
+export const HttpTranslationHeaderInterceptorProvider: Provider = {
+  provide: HTTP_INTERCEPTORS,
+  useClass: HttpTranslationHeaderInterceptor,
+  multi: true,
+  deps: [UserLanguageService],
+};

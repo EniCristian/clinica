@@ -25,11 +25,4 @@ export class UserLanguageService {
     localStorage.setItem(this.userLanguageKey, selectedLanguage);
     this.selectedLanguage.next(this.language);
   }
-
-  public getTranslations(): Observable<Map<string, string>> {
-    const response = this.httpClient.get<Map<string, string>>(
-      `${environment.apiBaseUrl}/translations`
-    );
-    return response;
-  }
 }

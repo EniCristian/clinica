@@ -11,7 +11,11 @@ import { LanguageSwitcherComponent } from './language-switcher/language-switcher
     HeaderNavigatorComponent,
     LanguageSwitcherComponent,
   ],
-  exports: [HeaderComponent, HeaderNavigatorComponent],
+  exports: [
+    HeaderComponent,
+    HeaderNavigatorComponent,
+    LanguageSwitcherComponent,
+  ],
   imports: [CommonModule, CommonsModule],
 })
 export class NavigationModule {}
