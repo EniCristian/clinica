@@ -8,6 +8,8 @@ namespace Clinica.EndpointDefinitions.Translations;
 
 public static class TranslationsHandlers
 {
+    //TODO: Move this to a configuration file
+    private const string DefaultCulture = "ro-RO";
     public static async Task<IResult> GetTranslationsAsync([FromHeader(Name = "Accept-Language")] string? locale, [FromServices] IMediator mediator)
     {
         CultureInfo cultureInfo;
@@ -15,7 +17,7 @@ public static class TranslationsHandlers
         {
             locale = locale.Split(',').FirstOrDefault();
         }
-
+        locale ??= DefaultCulture;
         try
         {
             cultureInfo = new CultureInfo(locale);
