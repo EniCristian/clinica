@@ -1,0 +1,18 @@
+<div class="container">
+    <h3 mat-dialog-title>{{title | translate}}</h3>
+    <div mat-dialog-content>
+        <ul class="clearfix">
+            <li>
+                <p class="font-weight-bold">{{ messageResource | translate : messageParams }}</p>
+            </li>
+        </ul>
+    </div>
+    <div mat-dialog-actions class="mb-1">
+        <button mat-flat-button color="warn" [mat-dialog-close]="1">
+            {{confirmButtonText | translate}}
+        </button>
+        <button mat-flat-button (click)="close()">
+            {{cancelButtonText | translate}}
+        </button>
+    </div>
+</div>

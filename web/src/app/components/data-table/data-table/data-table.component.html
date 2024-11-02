@@ -1,0 +1,109 @@
+<div class="row clearfix">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="body">
+        <div class="responsive_table">
+          <app-table-header
+            *ngIf="title"
+            [title]="title"
+            [routePrefix]="routePrefix"
+            [simpleHeader]="simpleHeader"
+            (refreshTableEvent)="refresh()"
+          >
+          </app-table-header>
+          <div *ngIf="dataSource && columns">
+            <app-data-table-filter
+              [columns]="columns"
+              (filterChanged)="onFilterChanged($event)"
+            ></app-data-table-filter>
+            <mat-table
+              class="mat-cell"
+              matSort
+              [dataSource]="dataSource"
+              (matSortChange)="onSort($event)"
+            >
+              <mat-header-row
+                *matHeaderRowDef="allHeaderColumns"
+              ></mat-header-row>
+              <mat-row
+                *matRowDef="let row; columns: allHeaderColumns"
+              ></mat-row>
+
+              <ng-container
+                *ngFor="let column of headerColumns"
+                [matColumnDef]="column"
+                mat-row
+              >
+                <ng-container
+                  *ngIf="columns.get(column)?.sortable; else notSortable"
+                >
+                  <mat-header-cell mat-sort-header *matHeaderCellDef>
+                    {{ columns.get(column)?.headerName ?? "" | translate }}
+                  </mat-header-cell>
+                </ng-container>
+                <ng-template #notSortable>
+                  <mat-header-cell *matHeaderCellDef>
+                    {{ columns.get(column)?.headerName ?? "" | translate }}
+                  </mat-header-cell>
+                </ng-template>
+              </ng-container>
+
+              <ng-container [matColumnDef]="'actions'">
+                <mat-header-cell *matHeaderCellDef>{{
+                  "MATERIAL_DATA_TABLE_ACTIONS_HEADER" | translate
+                }}</mat-header-cell>
+                <mat-cell *matCellDef="let row; let i = index">
+                  <button
+                    *ngFor="let action of additionalActions"
+                    mat-icon-button
+                    color="accent"
+                    class="btn-tbl-edit"
+                    (click)="action.callback(row)"
+                  >
+                    <mat-icon
+                      [ariaLabel]="'{{action.name}}'"
+                      class="col-white"
+                      >{{ action.icon }}</mat-icon
+                    >
+                  </button>
+                  <button
+                    mat-icon-button
+                    color="accent"
+                    class="btn-tbl-edit"
+                    (click)="edit(row)"
+                    *ngIf="hasAccess('edit')"
+                  >
+                    <mat-icon aria-label="Edit" class="col-white"
+                      >edit</mat-icon
+                    >
+                  </button>
+                  <button
+                    mat-icon-button
+                    color="accent"
+                    class="btn-tbl-delete"
+                    (click)="delete(row)"
+                    *ngIf="hasAccess('delete')"
+                  >
+                    <mat-icon aria-label="Delete" class="col-white"
+                      >delete</mat-icon
+                    >
+                  </button>
+                </mat-cell>
+              </ng-container>
+            </mat-table>
+
+            <mat-paginator
+              [length]="pagination.totalItems"
+              [pageSize]="pagination.pageSize"
+              [pageIndex]="pagination.pageNumber - 1"
+              [pageSizeOptions]="pageSizeOptions"
+              (page)="onPageChange($event)"
+              showFirstLastButtons
+            >
+            </mat-paginator>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

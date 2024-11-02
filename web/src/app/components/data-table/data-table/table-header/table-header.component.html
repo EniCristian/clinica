@@ -1,0 +1,30 @@
+<div *ngIf="!simpleHeader" class="materialTableHeader">
+    <div class="row">
+        <div class="col-8">
+            <div class="header-buttons-left ml-0">
+                <h2><strong>{{title | translate}}</strong></h2>
+            </div>
+        </div>
+        <div class="col-4">
+            <ul class="header-buttons">
+                <li>
+                    <div class="icon-button-demo">
+                        <button mat-mini-fab color="primary" (click)="addNew()">
+                            <mat-icon class="col-white">add</mat-icon>
+                        </button>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon-button-demo">
+                        <button mat-mini-fab color="primary" (click)="refresh()">
+                            <mat-icon class="col-white">refresh</mat-icon>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div *ngIf="simpleHeader" class="header">
+    <h2><strong>{{title | translate}}</strong></h2>
+</div>
