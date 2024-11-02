@@ -3,7 +3,7 @@ using Clinica.Application.Common.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Clinica.Application.Queries.Reviews;
+namespace Clinica.Application.Reviews;
 
 public record ReviewsQuery : IRequest<IEnumerable<ReviewDto>>;
 

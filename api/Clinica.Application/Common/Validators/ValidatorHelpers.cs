@@ -14,7 +14,8 @@ public class FullNameValidator : AbstractValidator<string>
 {
     public FullNameValidator()
     {
-        RuleFor(x => x).Matches(@"^[a-zA-Z- ]*$").WithMessage("Full name must contain only letters, - sign and spaces")
+        RuleFor(x => x)
+            .Matches(@"^[a-zA-Z- ]*$").WithMessage("Full name must contain only letters, - sign and spaces")
             .MinimumLength(3).WithMessage("Full name must contain at least 3 characters");
     }
 }

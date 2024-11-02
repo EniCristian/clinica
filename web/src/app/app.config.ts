@@ -10,8 +10,12 @@ import { TranslateLoaderService } from './common/translate/http-translate-loader
 import { environment } from './environments/environment';
 import { CommonsModule } from './common/commons.module';
 import { HttpTranslationHeaderInterceptorProvider } from './common/translate/http-translation-header-interceptor';
-import { provideAnimations } from '@angular/platform-browser/animations';
+import {
+  BrowserAnimationsModule,
+  provideAnimations,
+} from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideToastr, ToastrModule } from 'ngx-toastr';
 
 export const provideTranslation = () => ({
   defaultLanguage: environment.defaultLanguage,
@@ -37,8 +41,14 @@ export const appConfig: ApplicationConfig = {
     HttpTranslationHeaderInterceptorProvider,
     provideRouter(routes),
     provideAnimations(),
+    provideToastr(),
     provideHttpClient(),
     provideClientHydration(),
-    importProvidersFrom([translateModule]), provideAnimationsAsync(), provideAnimationsAsync(),
+    importProvidersFrom([
+      translateModule,
+      BrowserAnimationsModule,
+      ToastrModule.forRoot(),
+    ]),
+    provideAnimationsAsync(),
   ],
 };

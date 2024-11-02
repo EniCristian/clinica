@@ -28,7 +28,8 @@ public class ApplicationDbContext(
     public DbSet<PatientReview> PatientReviews => Set<PatientReview>();
 
     public DbSet<Speciality> Specialities => Set<Speciality>();
-    
+    public DbSet<Feedback> Feedbacks => Set<Feedback>();
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.AddInterceptors(auditableEntitySaveChangesInterceptor);

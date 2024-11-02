@@ -1,4 +1,4 @@
-using Clinica.Application.Queries.Medics;
+using Clinica.Application.Medics;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

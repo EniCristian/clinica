@@ -1,7 +1,7 @@
 using Clinica.Application.Common.Mapping;
 using Clinica.Domain.Entities;
 
-namespace Clinica.Application.Queries.Medics;
+namespace Clinica.Application.Medics;
 
 public class MedicDto : IMapFrom<Medic>
 {

@@ -2,7 +2,7 @@ using System.Globalization;
 using Clinica.Application.Services;
 using MediatR;
 
-namespace Clinica.Application.Queries;
+namespace Clinica.Application.Translations;
 
 public record TranslationsQuery(CultureInfo culture): IRequest<IDictionary<string, string>>;
 internal class TranslationsQueryHandler : IRequestHandler<TranslationsQuery, IDictionary<string, string>>

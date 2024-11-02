@@ -1,4 +1,4 @@
-using Clinica.Application.Queries.Reviews;
+using Clinica.Application.Reviews;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

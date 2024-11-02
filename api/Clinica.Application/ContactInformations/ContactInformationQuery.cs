@@ -3,7 +3,7 @@ using Clinica.Application.Common.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Clinica.Application.Queries.ContactInformations;
+namespace Clinica.Application.ContactInformations;
 
 public record ContactInformationQuery : IRequest<ContactInformationDto>;
 

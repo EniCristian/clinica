@@ -38,13 +38,13 @@ const navigationMenuItems: NavigationRoute[] = [
     roles: [],
     submenu: [],
   },
-  {
-    moduleName: 'blog',
-    path: 'blog',
-    title: 'Blog',
-    roles: [],
-    submenu: [],
-  },
+  // {
+  //   moduleName: 'blog',
+  //   path: 'blog',
+  //   title: 'Blog',
+  //   roles: [],
+  //   submenu: [],
+  // },
   {
     moduleName: 'contact',
     path: 'contact',

@@ -1,6 +1,6 @@
 using System.Globalization;
-using Clinica.Application.Queries;
 using Clinica.Application.Services;
+using Clinica.Application.Translations;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AddAppointmentModel } from '../model/add-appointment-model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AppointmentService } from '../services/appointment.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-appointment-form',
@@ -14,7 +15,8 @@ export class CreateAppointmentFormComponent implements OnInit {
   today = new Date();
   constructor(
     private appointmentService: AppointmentService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private toastr: ToastrService
   ) {
     this.docForm = this.fb.group({
       name: ['', Validators.required],
@@ -38,7 +40,7 @@ export class CreateAppointmentFormComponent implements OnInit {
     this.appointmentService
       .createAppointment(this.addAppointmentModel)
       .subscribe((response) => {
-        console.log(response);
+        this.toastr.success('Appointment created successfully');
       });
   }
 }

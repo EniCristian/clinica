@@ -1,7 +1,7 @@
 using Clinica.Application.Common.Mapping;
 using Clinica.Domain.Entities;
 
-namespace Clinica.Application.Queries.ContactInformations;
+namespace Clinica.Application.ContactInformations;
 
 public class ContactInformationDto: IMapFrom<Domain.Entities.ContactInformation>
 {

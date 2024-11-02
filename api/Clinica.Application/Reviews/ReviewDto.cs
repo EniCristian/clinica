@@ -1,7 +1,7 @@
 using Clinica.Application.Common.Mapping;
 using Clinica.Domain.Entities;
 
-namespace Clinica.Application.Queries.Reviews;
+namespace Clinica.Application.Reviews;
 
 public class ReviewDto: IMapFrom<PatientReview>
 {

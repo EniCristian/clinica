@@ -17,6 +17,7 @@ public interface IApplicationDbContext
     DbSet<PatientReview> PatientReviews { get; }
     
     DbSet<Speciality> Specialities { get; }
+    DbSet<Feedback> Feedbacks { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 }

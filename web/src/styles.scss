@@ -8,6 +8,8 @@
 @import "../node_modules/bootstrap/scss/mixins";
 @import "ngx-owl-carousel-o/lib/styles/scss/owl.carousel";
 @import "ngx-owl-carousel-o/lib/styles/scss/owl.theme.default";
+@import "ngx-toastr/toastr";
+@import "ngx-toastr/toastr-bs5-alert";
 
 body {
   color: $body-text;
