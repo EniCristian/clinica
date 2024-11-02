@@ -17,7 +17,6 @@ export class DoctorsListComponent {
     this.http.getDoctors().subscribe({
       next: (data: Doctor[] | undefined) => {
         this.doctors = data ? data : undefined;
-        console.log('Doctors loaded', this.doctors);
       },
       error: (error) => console.error('Failed to load doctors', error),
     });

@@ -1,4 +1,6 @@
+using Clinica.EndpointDefinitions.Appointments;
 using Clinica.EndpointDefinitions.ContactInformation;
+using Clinica.EndpointDefinitions.Feedback;
 using Clinica.EndpointDefinitions.Medics;
 using Clinica.EndpointDefinitions.Reviews;
 using Clinica.EndpointDefinitions.Translations;
@@ -12,6 +14,8 @@ internal static  class EndpointDefinition
         app.RegisterBookStoreEndpoints();
         app.RegisterContactInformationEndpoints();
         app.RegisterMedicsEndpoints();
+        app.RegisterAppointmentEndpoints();
+        app.RegisterFeedbackEndpoints();
         app.RegisterReviewsEndpoints();
     }
 }

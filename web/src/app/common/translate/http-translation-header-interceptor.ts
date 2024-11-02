@@ -22,7 +22,6 @@ export class HttpTranslationHeaderInterceptor implements HttpInterceptor {
         'Accept-Language': this.languageService.language,
       },
     });
-    console.log(request);
     return next.handle(request);
   }
 }

@@ -1,4 +1,4 @@
-﻿namespace Clinica.Application.Interfaces;
+﻿namespace Clinica.Application.Common.Interfaces;
 
 public interface IDateTime
 {

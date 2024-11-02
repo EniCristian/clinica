@@ -1,4 +1,4 @@
-using Clinica.Application.Interfaces;
+using Clinica.Application.Common.Interfaces;
 
 namespace Clinica.Infrastructure.Services;
 

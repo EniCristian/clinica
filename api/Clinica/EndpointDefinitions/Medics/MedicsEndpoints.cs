@@ -1,4 +1,5 @@
 using Clinica.EndpointDefinitions.Translations;
+using Clinica.Middlewares;
 
 namespace Clinica.EndpointDefinitions.Medics;
 
@@ -8,6 +9,6 @@ public static class MedicsEndpointRouteBuilderExtensions
     {
         var booksEndpoints = endpointRouteBuilder.MapGroup("api/medics");
 
-        booksEndpoints.MapGet("", MedicsHandlers.GetMedicsAsync);
+        booksEndpoints.MapGet(MedicsHandlers.GetMedicsAsync);
     }
 }

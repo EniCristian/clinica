@@ -1,4 +1,4 @@
-﻿using Clinica.Application.Models;
+﻿using Clinica.Application.Common.Models;
 using Microsoft.AspNetCore.Identity;
 
 namespace Clinica.Infrastructure.Identity;

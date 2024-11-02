@@ -1,5 +1,5 @@
 using Clinica;
-using Clinica.Application.Extensions;
+using Clinica.Application.Common.Extensions;
 using Clinica.EndpointDefinitions;
 using Clinica.Infrastructure;
 using Clinica.Infrastructure.Persistence;

@@ -1,4 +1,4 @@
-using Clinica.Application.Interfaces;
+using Clinica.Application.Common.Interfaces;
 using Clinica.Infrastructure.Identity;
 using Clinica.Infrastructure.Interceptors;
 using Clinica.Infrastructure.Persistence;

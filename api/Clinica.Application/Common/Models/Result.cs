@@ -1,4 +1,4 @@
-﻿namespace Clinica.Application.Models;
+﻿namespace Clinica.Application.Common.Models;
 
 public class Result
 {

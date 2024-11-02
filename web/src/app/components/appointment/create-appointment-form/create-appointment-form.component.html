@@ -36,12 +36,22 @@
       <div class="col-lg-5 offset-lg-1 align-self-center">
         <div class="appointment-form text-center mt-5 mt-lg-0">
           <h3 class="mb-5">{{ "appointment_schedule_now" | translate }}</h3>
-          <form action="#">
+          <form [formGroup]="docForm">
             <div class="form-group">
               <input
                 type="text"
                 placeholder="{{ 'forms_enter_name' | translate }}"
                 required
+                formControlName="name"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                id="phone_number"
+                placeholder="{{ 'forms_enter_phone_number' | translate }}"
+                required
+                formControlName="phoneNumber"
               />
             </div>
             <div class="form-group">
@@ -49,17 +59,24 @@
                 type="email"
                 placeholder="{{ 'forms_enter_email' | translate }}"
                 required
+                formControlName="email"
               />
             </div>
             <div class="form-group">
-              <input
-                type="text"
-                id="datepicker"
-                placeholder="Date"
-                onfocus="this.placeholder = ''"
-                onblur="this.placeholder = 'Date'"
-                required
-              />
+              <mat-form-field>
+                <input
+                  matInput
+                  [matDatepicker]="scheduleDatePicker"
+                  [min]="today"
+                  formControlName="date"
+                  required
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="scheduleDatePicker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #scheduleDatePicker></mat-datepicker>
+              </mat-form-field>
             </div>
             <div class="form-group">
               <textarea
@@ -67,12 +84,12 @@
                 cols="20"
                 rows="7"
                 placeholder="{{ 'forms_enter_message' | translate }}"
-                required
+                formControlName="message"
               ></textarea>
             </div>
-            <a href="#" class="template-btn">{{
-              "appointment_schedule_now" | translate
-            }}</a>
+            <button class="template-btn" (click)="createAppointment()">
+              {{ "appointment_schedule_now" | translate }}
+            </button>
           </form>
         </div>
       </div>

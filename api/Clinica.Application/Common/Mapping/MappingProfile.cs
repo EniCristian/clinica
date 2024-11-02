@@ -1,7 +1,7 @@
 using System.Reflection;
 using AutoMapper;
 
-namespace Clinica.Application.Mapping;
+namespace Clinica.Application.Common.Mapping;
 
 public class MappingProfile : Profile
 {

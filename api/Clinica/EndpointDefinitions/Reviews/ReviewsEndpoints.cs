@@ -1,3 +1,5 @@
+using Clinica.Middlewares;
+
 namespace Clinica.EndpointDefinitions.Reviews;
 
 public static class ReviewsEndpoints
@@ -6,6 +8,6 @@ public static class ReviewsEndpoints
     {
         var booksEndpoints = endpointRouteBuilder.MapGroup("api/reviews");
 
-        booksEndpoints.MapGet("", ReviewsHandlers.GetReviews);
+        booksEndpoints.MapGet(ReviewsHandlers.GetReviews);
     }
 }

@@ -1,6 +1,6 @@
-﻿using Clinica.Application.Models;
+﻿using Clinica.Application.Common.Models;
 
-namespace Clinica.Application.Interfaces;
+namespace Clinica.Application.Common.Interfaces;
 
 public interface IIdentityService
 {

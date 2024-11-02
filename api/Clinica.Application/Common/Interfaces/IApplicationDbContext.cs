@@ -1,7 +1,7 @@
 using Clinica.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Clinica.Application.Interfaces;
+namespace Clinica.Application.Common.Interfaces;
 
 public interface IApplicationDbContext
 {
@@ -12,7 +12,8 @@ public interface IApplicationDbContext
     DbSet<Medic> Medics { get; }
     
     DbSet<Patient> Patients { get; }
-    
+    DbSet<Appointment> Appointments { get; }
+
     DbSet<PatientReview> PatientReviews { get; }
     
     DbSet<Speciality> Specialities { get; }

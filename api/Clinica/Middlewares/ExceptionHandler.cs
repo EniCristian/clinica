@@ -2,7 +2,8 @@ using System.Net;
 using System.Security.Claims;
 using System.Text.Json;
 using Clinica.Common.Exceptions;
-using Microsoft.VisualBasic;
+using FluentValidation;
+using Microsoft.AspNetCore.Mvc;
 using Serilog.Context;
 
 namespace Clinica.Middlewares;
@@ -46,6 +47,10 @@ public class ExceptionHandler
             {
                 await HandleException(httpContext, e, logger, (int)HttpStatusCode.NotFound);
             }
+            catch (ValidationException e)
+            {
+                await HandleValidationException(httpContext, e);
+            }
             catch (Exception e)
             {
                 await HandleException(httpContext, e, logger, (int)HttpStatusCode.InternalServerError);
@@ -85,6 +90,20 @@ public class ExceptionHandler
 
             LogContext.PushProperty("Username", username);
             LogContext.PushProperty("UserId", userId);
+        }
+
+        private async Task HandleValidationException(HttpContext httpContext, Exception ex)
+        {
+            var exception = (ValidationException)ex;
+            var errors = exception.Errors.GroupBy(x => x.PropertyName, x => x.ErrorMessage)
+                .ToDictionary(x => x.Key, x => x.ToArray());
+            httpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
+
+            await httpContext.Response.WriteAsJsonAsync(new ValidationProblemDetails(errors)
+            {
+                Status = StatusCodes.Status400BadRequest,
+                Type = "https://tools.ietf.org/html/rfc7231#section-6.5.1"
+            });
         }
 
         #endregion Private Methods

@@ -1,5 +1,5 @@
-﻿using Clinica.Application.Interfaces;
-using Clinica.Application.Models;
+﻿using Clinica.Application.Common.Interfaces;
+using Clinica.Application.Common.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

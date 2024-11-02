@@ -38,4 +38,7 @@
     <data name="send" xml:space="preserve">
         <value>Trimite</value>
     </data>
+    <data name="enter_phone_number" xml:space="preserve">
+        <value>Introduceți numarul de telefon</value>
+    </data>
 </root>

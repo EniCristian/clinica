@@ -105,6 +105,15 @@ namespace Clinica.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter your phone nunmber.
+        /// </summary>
+        public static string enter_phone_number {
+            get {
+                return ResourceManager.GetString("enter_phone_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter subject.
         /// </summary>
         public static string enter_subject {

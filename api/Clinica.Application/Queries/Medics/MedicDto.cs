@@ -1,4 +1,4 @@
-using Clinica.Application.Mapping;
+using Clinica.Application.Common.Mapping;
 using Clinica.Domain.Entities;
 
 namespace Clinica.Application.Queries.Medics;

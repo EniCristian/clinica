@@ -6,6 +6,7 @@ import { CreateAppointmentPageComponent } from './create-appointment-page/create
 import { WelcomeMessageComponent } from './welcome-message/welcome-message.component';
 import { CreateAppointmentFormComponent } from './create-appointment-form/create-appointment-form.component';
 import { CommonsModule } from '../../common/commons.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,9 @@ import { CommonsModule } from '../../common/commons.module';
   imports: [
     CommonModule,
     CommonsModule,
+    FormsModule,
+    ReactiveFormsModule,
+
     AppointmentRoutingModule,
     BannerComponent,
   ],

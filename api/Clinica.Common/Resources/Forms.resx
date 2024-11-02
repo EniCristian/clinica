@@ -45,4 +45,7 @@
     <data name="send" xml:space="preserve">
         <value>Send</value>
     </data>
+    <data name="enter_phone_number" xml:space="preserve">
+        <value>Enter your phone nunmber</value>
+    </data>
 </root>

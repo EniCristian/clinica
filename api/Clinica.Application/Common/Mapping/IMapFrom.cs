@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace Clinica.Application.Mapping;
+namespace Clinica.Application.Common.Mapping;
 
 public interface IMapFrom<T>
 {

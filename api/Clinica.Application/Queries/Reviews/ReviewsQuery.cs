@@ -1,5 +1,5 @@
 using AutoMapper;
-using Clinica.Application.Interfaces;
+using Clinica.Application.Common.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 

@@ -1,4 +1,4 @@
-using Clinica.Application.Interfaces;
+using Clinica.Application.Common.Interfaces;
 using Clinica.Domain.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;

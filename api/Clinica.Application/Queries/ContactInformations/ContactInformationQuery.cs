@@ -1,10 +1,9 @@
 using AutoMapper;
-using Clinica.Application.Interfaces;
-using Clinica.Application.Queries.ContactInformations;
+using Clinica.Application.Common.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Clinica.Application.Queries.ContactInformation;
+namespace Clinica.Application.Queries.ContactInformations;
 
 public record ContactInformationQuery : IRequest<ContactInformationDto>;
 

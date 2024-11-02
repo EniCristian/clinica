@@ -95,3 +95,41 @@ textarea:focus {
 .item-padding {
   padding: 40px 20px;
 }
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+mat-form-field {
+  border-radius: 0%;
+  width: 100%;
+  font: inherit !important;
+  letter-spacing: inherit !important;
+  text-decoration: inherit !important;
+  text-transform: inherit !important;
+  .mat-mdc-text-field-wrapper {
+    padding-left: 0%;
+    background-color: #fff !important;
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: #fff;
+    }
+    border-radius: 0%;
+    .mat-mdc-form-field-flex {
+      height: 44px;
+      .mat-mdc-form-field-infix {
+        padding: 0 0 !important;
+        max-height: 44px;
+        input {
+          height: 44px !important;
+        }
+      }
+    }
+  }
+}

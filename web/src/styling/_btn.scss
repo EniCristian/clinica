@@ -22,6 +22,7 @@
     color: $light;
     @include opacity(0.8);
   }
+  border: 0px;
 }
 .news-btn {
   color: $heading-text;
