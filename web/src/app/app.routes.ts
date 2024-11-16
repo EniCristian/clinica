@@ -40,4 +40,9 @@ export const routes: Routes = [
         (m) => m.ContactModule
       ),
   },
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('./components/auth/auth.module').then((m) => m.AuthModule),
+  },
 ];

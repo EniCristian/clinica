@@ -6,7 +6,7 @@ public static class AppointmentEndpoints
 {
     public static void RegisterAppointmentEndpoints(this IEndpointRouteBuilder endpointRouteBuilder)
     {
-        var booksEndpoints = endpointRouteBuilder.MapGroup("api/appointment");
+        var booksEndpoints = endpointRouteBuilder.MapGroup("appointment");
 
         booksEndpoints.MapPost(AppointmentHandlers.Post);
     }

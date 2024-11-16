@@ -6,34 +6,24 @@ using Microsoft.Extensions.Logging;
 
 namespace Clinica.Infrastructure.Persistence;
 
-public class ApplicationDbContextInitializer
+public class ApplicationDbContextInitializer(
+    ILogger<ApplicationDbContextInitializer> logger,
+    ApplicationDbContext context,
+    UserManager<ApplicationUser> userManager,
+    RoleManager<IdentityRole> roleManager)
 {
-    private readonly ILogger<ApplicationDbContextInitializer> _logger;
-    private readonly ApplicationDbContext _context;
-    private readonly UserManager<ApplicationUser> _userManager;
-    private readonly RoleManager<IdentityRole> _roleManager;
-
-    public ApplicationDbContextInitializer(ILogger<ApplicationDbContextInitializer> logger,
-        ApplicationDbContext context, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
-    {
-        _logger = logger;
-        _context = context;
-        _userManager = userManager;
-        _roleManager = roleManager;
-    }
-
     public async Task InitialiseAsync()
     {
         try
         {
-            if (_context.Database.IsSqlServer())
+            if (context.Database.IsSqlServer())
             {
-                await _context.Database.MigrateAsync();
+                await context.Database.MigrateAsync();
             }
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "An error occurred while initialising the database.");
+            logger.LogError(ex, "An error occurred while initialising the database.");
             throw;
         }
     }
@@ -46,7 +36,7 @@ public class ApplicationDbContextInitializer
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "An error occurred while seeding the database.");
+            logger.LogError(ex, "An error occurred while seeding the database.");
             throw;
         }
     }
@@ -59,12 +49,12 @@ public class ApplicationDbContextInitializer
          SeedSpecialists();
         AddPatients();
         
-        await _context.SaveChangesAsync();
+        await context.SaveChangesAsync();
     }
 
     private void AddPatients()
     {
-        if (!_context.Patients.Any())
+        if (!context.Patients.Any())
         {
             var femalePatient = new Patient()
             {
@@ -96,8 +86,8 @@ public class ApplicationDbContextInitializer
                 }
             };
 
-            _context.Patients.Add(femalePatient);
-            _context.Patients.Add(malePatient);
+            context.Patients.Add(femalePatient);
+            context.Patients.Add(malePatient);
         }
     }
 
@@ -106,30 +96,30 @@ public class ApplicationDbContextInitializer
     {
         var administratorRole = new IdentityRole("Administrator");
 
-        if (_roleManager.Roles.All(r => r.Name != administratorRole.Name))
+        if (roleManager.Roles.All(r => r.Name != administratorRole.Name))
         {
-            await _roleManager.CreateAsync(administratorRole);
+            await roleManager.CreateAsync(administratorRole);
         }
 
         // Default users
         var administrator = new ApplicationUser
-            { UserName = "administrator@localhost", Email = "administrator@localhost" };
+            { UserName = "administrator@localhost", Email = "administrator@localhost", FirstName = "Administrator", LastName = "Administrator" };
 
-        if (_userManager.Users.All(u => u.UserName != administrator.UserName))
+        if (userManager.Users.All(u => u.UserName != administrator.UserName))
         {
-            await _userManager.CreateAsync(administrator, "Administrator1!");
+            await userManager.CreateAsync(administrator, "Administrator1!");
             if (!string.IsNullOrWhiteSpace(administratorRole.Name))
             {
-                await _userManager.AddToRolesAsync(administrator, new[] { administratorRole.Name });
+                await userManager.AddToRolesAsync(administrator, new[] { administratorRole.Name });
             }
         }
     }
 
     private void SeedContactInformation()
     {
-        if (!_context.ContactInformations.Any())
+        if (!context.ContactInformations.Any())
         {
-            _context.ContactInformations.Add(new ContactInformation
+            context.ContactInformations.Add(new ContactInformation
             {
                 Email = "info.terramed.md",
                 PhoneNumber = "+373 (22) 202 373",
@@ -146,7 +136,7 @@ public class ApplicationDbContextInitializer
 
     private void SeedSpecialists()
     {
-        if (!_context.Specialities.Any())
+        if (!context.Specialities.Any())
         {
             var surgery = new Speciality
             {
@@ -176,12 +166,12 @@ public class ApplicationDbContextInitializer
                 Description = "Ecografia este o metodă de diagnostic medical care folosește ultrasunetele pentru a vizualiza structurile interne ale corpului."
             };
             
-            _context.Specialities.Add(surgery);
-            _context.Specialities.Add(gynechology);
-            _context.Specialities.Add(reproductiveMedicine);
-            _context.Specialities.Add(ecography);
+            context.Specialities.Add(surgery);
+            context.Specialities.Add(gynechology);
+            context.Specialities.Add(reproductiveMedicine);
+            context.Specialities.Add(ecography);
             
-            _context.Medics.Add(new Medic
+            context.Medics.Add(new Medic
             {
                 FirstName = "Serghei",
                 LastName = "Zugravîi",
@@ -189,7 +179,7 @@ public class ApplicationDbContextInitializer
                 SepecialityId = reproductiveMedicine.Id,
                 Speciality = reproductiveMedicine
             });
-            _context.Medics.Add(new Medic
+            context.Medics.Add(new Medic
             {
                 FirstName = "Cornelia",
                 LastName = "Istrate",
@@ -197,7 +187,7 @@ public class ApplicationDbContextInitializer
                 SepecialityId = ecography.Id,
                 Speciality = ecography
             });
-            _context.Medics.Add(new Medic
+            context.Medics.Add(new Medic
             {
                 FirstName = "Elina",
                 LastName = "Danilova",
@@ -205,7 +195,7 @@ public class ApplicationDbContextInitializer
                 SepecialityId = gynechology.Id,
                 Speciality = gynechology
             });
-            _context.Medics.Add(new Medic
+            context.Medics.Add(new Medic
             {
                 FirstName = "Sergiu",
                 LastName = "Bujor",

@@ -20,12 +20,6 @@
     <data name="enter_message" xml:space="preserve">
         <value>Introduceți mesajul</value>
     </data>
-    <data name="email_invalid" xml:space="preserve">
-        <value>Adesa de email este incorecta</value>
-    </data>
-    <data name="email_required" xml:space="preserve">
-        <value>Adresa de email este obligatorie</value>
-    </data>
     <data name="enter_subject" xml:space="preserve">
         <value>Introduceti titlul</value>
     </data>
@@ -40,5 +34,26 @@
     </data>
     <data name="enter_phone_number" xml:space="preserve">
         <value>Introduceți numarul de telefon</value>
+    </data>
+    <data name="email_validation_required" xml:space="preserve">
+        <value>Adresa de email este obligatorie</value>
+    </data>
+    <data name="email_validation_invalid" xml:space="preserve">
+        <value>Adesa de email este incorecta</value>
+    </data>
+    <data name="password" xml:space="preserve">
+        <value>Introduceți parola</value>
+    </data>
+    <data name="password_validation_required" xml:space="preserve">
+        <value>Parola este obligatorie</value>
+    </data>
+    <data name="remember_me" xml:space="preserve">
+        <value>Tine-ma minte</value>
+    </data>
+    <data name="forgot_password_question" xml:space="preserve">
+        <value>Ati uitat parola?</value>
+    </data>
+    <data name="login" xml:space="preserve">
+        <value>Intra</value>
     </data>
 </root>

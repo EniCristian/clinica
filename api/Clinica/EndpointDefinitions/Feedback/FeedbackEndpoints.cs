@@ -6,7 +6,7 @@ public static class FeedbackEndpoints
 {
     public static void RegisterFeedbackEndpoints(this IEndpointRouteBuilder endpointRouteBuilder)
     {
-        var booksEndpoints = endpointRouteBuilder.MapGroup("api/feedback");
+        var booksEndpoints = endpointRouteBuilder.MapGroup("feedback");
 
         booksEndpoints.MapPost(FeedbackHandlers.Post);
     }

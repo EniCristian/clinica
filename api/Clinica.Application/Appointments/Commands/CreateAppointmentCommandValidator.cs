@@ -9,7 +9,7 @@ public class CreateAppointmentCommandValidator: AbstractValidator<CreateAppointm
     public CreateAppointmentCommandValidator()
     {
         RuleFor(v => v.Email)
-            .EmailAddress().WithMessage(Forms.email_invalid);
+            .EmailAddress().WithMessage(Forms.email_validation_invalid);
         RuleFor(v => v.PhoneNumber).SetValidator(new PhoneNumberValidator());
         RuleFor(v => v.Name).SetValidator(new FullNameValidator());
     }

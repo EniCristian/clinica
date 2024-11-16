@@ -1,0 +1,8 @@
+@import url("../shared/auth.scss");
+.auth-container {
+  &.login-container {
+    .left-img {
+      background-image: url("../../../../assets/images/graphics/auth_bg.svg");
+    }
+  }
+}

@@ -110,6 +110,7 @@ body {
 mat-form-field {
   border-radius: 0%;
   width: 100%;
+  margin-top: 5px;
   font: inherit !important;
   letter-spacing: inherit !important;
   text-decoration: inherit !important;
@@ -130,8 +131,19 @@ mat-form-field {
         max-height: 44px;
         input {
           height: 44px !important;
+          padding-left: 10px;
         }
       }
     }
   }
+}
+.mdc-floating-label {
+  font-size: 14px !important;
+  margin: auto;
+}
+.mdc-text-field--outlined {
+  --mdc-outlined-text-field-container-shape: 0px !important;
+}
+label {
+  top: 50% !important;
 }

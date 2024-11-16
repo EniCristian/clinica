@@ -4,6 +4,7 @@ using Clinica.EndpointDefinitions;
 using Clinica.Infrastructure;
 using Clinica.Infrastructure.Persistence;
 using Clinica.Middlewares;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 string[] allowedOrigins = (builder.Configuration.GetSection("CorsSettings:AllowUrls").AsEnumerable().Where(p => !string.IsNullOrWhiteSpace(p.Value)).Select(p => p.Value)?.ToArray()?? Array.Empty<string>())!;
@@ -14,18 +15,25 @@ builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddApiServices();
 
 var app = builder.Build();
-
+var baseRoute = "/api";
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
+    app.UseSwagger(c =>
+    {
+        c.RouteTemplate = "swagger/{documentName}/swagger.json";
+        c.PreSerializeFilters.Add((swaggerDoc, httpReq) =>
+        {
+            swaggerDoc.Servers = new List<OpenApiServer> { new OpenApiServer { Url = $"{httpReq.Scheme}://{httpReq.Host.Value}{baseRoute}" } };
+        });
+    });
     app.UseSwaggerUI();
     using var scope = app.Services.CreateScope();
     var initializer = scope.ServiceProvider.GetRequiredService<ApplicationDbContextInitializer>();
     await initializer.InitialiseAsync();
     await initializer.SeedAsync();
 }
-
+app.UsePathBase(new PathString(baseRoute));
 app.UseHttpsRedirection();
 app.AddEndpoints();
 app.UseExceptionHandling();

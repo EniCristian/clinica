@@ -4,9 +4,9 @@ namespace Clinica.EndpointDefinitions.Translations;
 
 public static class EndpointRouteBuilderExtensions
 {
-    public static void RegisterBookStoreEndpoints(this IEndpointRouteBuilder endpointRouteBuilder)
+    public static void RegisterTranslationsEndpoints(this IEndpointRouteBuilder endpointRouteBuilder)
     {
-        var booksEndpoints = endpointRouteBuilder.MapGroup("api/translations");
+        var booksEndpoints = endpointRouteBuilder.MapGroup("translations");
 
         booksEndpoints.MapGet(TranslationsHandlers.GetTranslationsAsync);
     }

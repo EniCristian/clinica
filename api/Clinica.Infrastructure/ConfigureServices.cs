@@ -1,9 +1,9 @@
 using Clinica.Application.Common.Interfaces;
+using Clinica.Domain.Constants;
 using Clinica.Infrastructure.Identity;
 using Clinica.Infrastructure.Interceptors;
 using Clinica.Infrastructure.Persistence;
 using Clinica.Infrastructure.Services;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -33,22 +33,22 @@ public static class ConfigureServices
 
         services.AddScoped<ApplicationDbContextInitializer>();
 
-        services
-            .AddDefaultIdentity<ApplicationUser>()
-            .AddRoles<IdentityRole>()
-            .AddEntityFrameworkStores<ApplicationDbContext>();
+        services.AddAuthentication()
+            .AddBearerToken(IdentityConstants.BearerScheme);
 
-        services.AddIdentityServer()
-            .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+        services.AddAuthorizationBuilder();
+
+        services
+            .AddIdentityCore<ApplicationUser>()
+            .AddRoles<IdentityRole>()
+            .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddApiEndpoints();
+
+        services.AddAuthorization(options =>
+            options.AddPolicy(Policies.CanPurge, policy => policy.RequireRole(Roles.Administrator).RequireRole(Roles.Medic)));
 
         services.AddTransient<IDateTime, DateTimeService>();
         services.AddTransient<IIdentityService, IdentityService>();
-
-        services.AddAuthentication()
-            .AddIdentityServerJwt();
-
-        services.AddAuthorization(options =>
-            options.AddPolicy("CanPurge", policy => policy.RequireRole("Administrator")));
 
         return services;
     }

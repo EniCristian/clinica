@@ -62,18 +62,18 @@ namespace Clinica.Common.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Email is invalid.
         /// </summary>
-        public static string email_invalid {
+        public static string email_validation_invalid {
             get {
-                return ResourceManager.GetString("email_invalid", resourceCulture);
+                return ResourceManager.GetString("email_validation_invalid", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Email is required.
         /// </summary>
-        public static string email_required {
+        public static string email_validation_required {
             get {
-                return ResourceManager.GetString("email_required", resourceCulture);
+                return ResourceManager.GetString("email_validation_required", resourceCulture);
             }
         }
         
@@ -123,11 +123,56 @@ namespace Clinica.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Forgot password?.
+        /// </summary>
+        public static string forgot_password_question {
+            get {
+                return ResourceManager.GetString("forgot_password_question", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        public static string login {
+            get {
+                return ResourceManager.GetString("login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name is required.
         /// </summary>
         public static string name_required {
             get {
                 return ResourceManager.GetString("name_required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter password.
+        /// </summary>
+        public static string password {
+            get {
+                return ResourceManager.GetString("password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password is required.
+        /// </summary>
+        public static string password_validation_required {
+            get {
+                return ResourceManager.GetString("password_validation_required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remember me.
+        /// </summary>
+        public static string remember_me {
+            get {
+                return ResourceManager.GetString("remember_me", resourceCulture);
             }
         }
         

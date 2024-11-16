@@ -7,7 +7,7 @@ public static class MedicsEndpointRouteBuilderExtensions
 {
     public static void RegisterMedicsEndpoints(this IEndpointRouteBuilder endpointRouteBuilder)
     {
-        var booksEndpoints = endpointRouteBuilder.MapGroup("api/medics");
+        var booksEndpoints = endpointRouteBuilder.MapGroup("medics");
 
         booksEndpoints.MapGet(MedicsHandlers.GetMedicsAsync);
     }
