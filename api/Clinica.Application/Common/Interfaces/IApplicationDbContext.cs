@@ -6,6 +6,7 @@ namespace Clinica.Application.Common.Interfaces;
 public interface IApplicationDbContext
 {
     DbSet<Address> Addresses { get; }
+    DbSet<Token> Tokens { get; }
 
     DbSet<ContactInformation> ContactInformations { get; }
     

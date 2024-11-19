@@ -2,11 +2,14 @@ import { Component, ElementRef, HostListener } from '@angular/core';
 import {
   NavigationItemsWrapper,
   NavigationRoute,
+  privateNavigationItems,
+  publicNavigationItems,
 } from '../header-navigator/navigation-item';
 import { AuthService } from '../../auth/auth.service';
 import { NavigationStart, Router } from '@angular/router';
 import { ContactInformation } from '../../contact/contact-form/contact-information.model';
 import { ContactService } from '../../contact/service/contact.service';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -17,6 +20,7 @@ export class HeaderComponent {
   links: NavigationRoute[] = [];
   menu: string = '';
   submenu: string = '';
+
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -40,23 +44,27 @@ export class HeaderComponent {
   }
 
   initMenuLinks(): void {
-    const navigationMenuItemsTemp =
-      NavigationItemsWrapper.getNavigationMenuItems();
+    this.authService.currentUser.subscribe((user) => {
+      let navigationMenuItemsTemp: NavigationRoute[] = [];
+      console.log('user', user);
+      if (user) {
+        navigationMenuItemsTemp = privateNavigationItems;
+      } else navigationMenuItemsTemp = publicNavigationItems;
 
-    navigationMenuItemsTemp.forEach((el: NavigationRoute) => {
-      el.submenu = el.submenu.filter(
-        (subElement: NavigationRoute) =>
-          subElement.roles.length === 0 ||
-          this.authService.hasAccess(subElement.roles)
-      );
+      navigationMenuItemsTemp.forEach((el: NavigationRoute) => {
+        el.submenu = el.submenu.filter(
+          (subElement: NavigationRoute) =>
+            subElement.roles.length === 0 ||
+            this.authService.hasAccess(subElement.roles)
+        );
+      });
+      this.links = navigationMenuItemsTemp
+        .filter(
+          (e: NavigationRoute) =>
+            e.roles.length === 0 || this.authService.hasAccess(e.roles)
+        )
+        .map((ele: NavigationRoute) => ({ ...ele }));
     });
-
-    this.links = navigationMenuItemsTemp
-      .filter(
-        (e: NavigationRoute) =>
-          e.roles.length === 0 || this.authService.hasAccess(e.roles)
-      )
-      .map((ele: NavigationRoute) => ({ ...ele }));
   }
 
   navigationMenuActiveHighlight(): void {

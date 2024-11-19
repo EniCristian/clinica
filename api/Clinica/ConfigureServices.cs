@@ -8,7 +8,7 @@ public static class ConfigureServices
 {
     public static IServiceCollection AddApiServices(this IServiceCollection services)
     {
-        services.AddEndpointsApiExplorer(); ;
+        services.AddEndpointsApiExplorer();
         services.AddSwaggerGen(swagger =>
         {
             //This is to generate the Default UI of Swagger Documentation
@@ -39,8 +39,7 @@ public static class ConfigureServices
                             Id = "Bearer"
                         }
                     },
-                    new string[] {}
-
+                    new string[] { }
                 }
             });
         });
@@ -49,11 +48,8 @@ public static class ConfigureServices
         services.AddHttpContextAccessor();
         services.AddCors();
         services.AddHsts(options => { options.ExcludedHosts.Clear(); });
-        services.AddHttpsRedirection(options =>
-        {
-            options.RedirectStatusCode = StatusCodes.Status301MovedPermanently;
-        });
-        
+        services.AddHttpsRedirection(options => { options.RedirectStatusCode = StatusCodes.Status301MovedPermanently; });
+
         return services;
     }
 }

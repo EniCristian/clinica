@@ -6,8 +6,8 @@ public static class EndpointRouteBuilderExtensions
 {
     public static void RegisterTranslationsEndpoints(this IEndpointRouteBuilder endpointRouteBuilder)
     {
-        var booksEndpoints = endpointRouteBuilder.MapGroup("translations");
+        var translations = endpointRouteBuilder.MapGroup("translations");
 
-        booksEndpoints.MapGet(TranslationsHandlers.GetTranslationsAsync);
+        translations.MapGet(TranslationsHandlers.GetTranslationsAsync);
     }
 }

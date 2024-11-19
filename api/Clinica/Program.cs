@@ -15,7 +15,7 @@ builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddApiServices();
 
 var app = builder.Build();
-var baseRoute = "/api";
+const string baseRoute = "/api";
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -24,7 +24,7 @@ if (app.Environment.IsDevelopment())
         c.RouteTemplate = "swagger/{documentName}/swagger.json";
         c.PreSerializeFilters.Add((swaggerDoc, httpReq) =>
         {
-            swaggerDoc.Servers = new List<OpenApiServer> { new OpenApiServer { Url = $"{httpReq.Scheme}://{httpReq.Host.Value}{baseRoute}" } };
+            swaggerDoc.Servers = new List<OpenApiServer> { new() { Url = $"{httpReq.Scheme}://{httpReq.Host.Value}{baseRoute}" } };
         });
     });
     app.UseSwaggerUI();
@@ -38,6 +38,9 @@ app.UseHttpsRedirection();
 app.AddEndpoints();
 app.UseExceptionHandling();
 app.UseLocalization();
+app.UseAuthentication();
+app.UseRouting();
+app.UseAuthorization();
 app.UseCors(x => x
     .WithOrigins(allowedOrigins)
     .AllowAnyMethod()

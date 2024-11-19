@@ -1,5 +1,7 @@
 export class Token {
-  authToken!: string;
+  accessToken!: string;
   refreshToken!: string;
-  resetPasswordToken!: string;
+  resetPasswordToken: string | null = null;
+  expiresIn!: number;
+  tokenType!: string;
 }

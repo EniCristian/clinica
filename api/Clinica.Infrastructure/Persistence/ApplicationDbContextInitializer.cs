@@ -3,6 +3,7 @@ using Clinica.Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Paltinul.DataAccess.Entities.Users;
 
 namespace Clinica.Infrastructure.Persistence;
 
@@ -45,10 +46,10 @@ public class ApplicationDbContextInitializer(
     {
         // Default roles
         await SeedUsers();
-         SeedContactInformation();
-         SeedSpecialists();
+        SeedContactInformation();
+        SeedSpecialists();
         AddPatients();
-        
+
         await context.SaveChangesAsync();
     }
 
@@ -94,7 +95,7 @@ public class ApplicationDbContextInitializer(
 
     private async Task SeedUsers()
     {
-        var administratorRole = new IdentityRole("Administrator");
+        var administratorRole = new IdentityRole(Role.Administrator);
 
         if (roleManager.Roles.All(r => r.Name != administratorRole.Name))
         {
@@ -103,9 +104,9 @@ public class ApplicationDbContextInitializer(
 
         // Default users
         var administrator = new ApplicationUser
-            { UserName = "administrator@localhost", Email = "administrator@localhost", FirstName = "Administrator", LastName = "Administrator" };
+            { Email = "administrator@localhost", FirstName = "Administrator", LastName = "Administrator" };
 
-        if (userManager.Users.All(u => u.UserName != administrator.UserName))
+        if (userManager.Users.All(u => u.Email != administrator.Email))
         {
             await userManager.CreateAsync(administrator, "Administrator1!");
             if (!string.IsNullOrWhiteSpace(administratorRole.Name))
@@ -130,7 +131,8 @@ public class ApplicationDbContextInitializer(
                     City = "Chișinău",
                     Street = "str. Cuza Voda, 44 a"
                 }
-            }); ;
+            });
+            ;
         }
     }
 
@@ -144,33 +146,33 @@ public class ApplicationDbContextInitializer(
                 Name = "Cirurgie",
                 Description = "Cirurgia este o ramură a medicinei care se ocupă cu tratamentul bolilor, leziunilor și malformațiilor prin intervenții chirurgicale."
             };
-            
+
             var gynechology = new Speciality
             {
                 Id = Guid.NewGuid(),
                 Name = "Ginecologie",
                 Description = "Ginecologia este o ramură a medicinei care se ocupă cu studiul și tratamentul bolilor sistemului reproducător feminin."
             };
-            
+
             var reproductiveMedicine = new Speciality
             {
                 Id = Guid.NewGuid(),
                 Name = "Medicină reproductivă",
                 Description = "Medicina reproductivă este o ramură a medicinei care se ocupă cu studiul și tratamentul problemelor de fertilitate."
             };
-            
+
             var ecography = new Speciality
             {
                 Id = Guid.NewGuid(),
                 Name = "Ecografie",
                 Description = "Ecografia este o metodă de diagnostic medical care folosește ultrasunetele pentru a vizualiza structurile interne ale corpului."
             };
-            
+
             context.Specialities.Add(surgery);
             context.Specialities.Add(gynechology);
             context.Specialities.Add(reproductiveMedicine);
             context.Specialities.Add(ecography);
-            
+
             context.Medics.Add(new Medic
             {
                 FirstName = "Serghei",
@@ -203,7 +205,6 @@ public class ApplicationDbContextInitializer(
                 SepecialityId = surgery.Id,
                 Speciality = surgery
             });
-            
         }
     }
 }

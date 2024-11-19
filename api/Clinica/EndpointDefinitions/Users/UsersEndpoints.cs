@@ -1,4 +1,10 @@
 using Clinica.Infrastructure.Identity;
+using Clinica.Middlewares;
+using IdentityModel.Client;
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity.Data;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Clinica.EndpointDefinitions.Users;
 
@@ -6,6 +12,13 @@ public static class UsersEndpoints
 {
     public static void RegisterUsersEndpoints(this IEndpointRouteBuilder endpointRouteBuilder)
     {
-        endpointRouteBuilder.MapIdentityApi<ApplicationUser>();
+        var usersEndpoints = endpointRouteBuilder.MapGroup("users").RequireAuthorization();
+
+        usersEndpoints.MapPost(UsersHandlers.LoginUser, "login");
+        usersEndpoints.MapPost(UsersHandlers.RefreshToken, "refresh-token");
+        usersEndpoints.MapPost(UsersHandlers.RegisterUser, "register");
+        usersEndpoints.MapDelete(UsersHandlers.DeleteUser, "delete-by-email/{email}");
+        usersEndpoints.MapPut(UsersHandlers.UpdateUser, "update");
+        usersEndpoints.MapGet(UsersHandlers.GetByEmail, "get-by-email/{email}");
     }
 }

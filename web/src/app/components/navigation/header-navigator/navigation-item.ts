@@ -9,7 +9,7 @@ interface NavigationLink {
   title: string;
 }
 
-const navigationMenuItems: NavigationRoute[] = [
+const publicNavigationItems: NavigationRoute[] = [
   {
     moduleName: 'home',
     path: '',
@@ -53,11 +53,16 @@ const navigationMenuItems: NavigationRoute[] = [
     submenu: [],
   },
 ];
+
+const privateNavigationItems: NavigationRoute[] = [];
+
 class NavigationItemsWrapper {
-  public static getNavigationMenuItems(): Array<NavigationRoute> {
+  public static getNavigationMenuItems(
+    naviationItems: NavigationRoute[]
+  ): Array<NavigationRoute> {
     const result = [] as Array<NavigationRoute>;
 
-    navigationMenuItems.forEach((navigationMenuItem) => {
+    naviationItems.forEach((navigationMenuItem) => {
       const navRoute = {} as NavigationRoute;
       navRoute.path = navigationMenuItem.path;
       navRoute.title = navigationMenuItem.title;
@@ -77,4 +82,10 @@ class NavigationItemsWrapper {
   }
 }
 
-export { NavigationItemsWrapper, NavigationRoute, NavigationLink };
+export {
+  NavigationItemsWrapper,
+  NavigationRoute,
+  NavigationLink,
+  publicNavigationItems,
+  privateNavigationItems,
+};

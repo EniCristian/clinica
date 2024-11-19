@@ -30,13 +30,11 @@ export class CreateAppointmentFormComponent implements OnInit {
   ngOnInit(): void {}
 
   createAppointment(): void {
-    console.log(this.docForm.value);
     this.addAppointmentModel = {
       ...this.addAppointmentModel,
       ...this.docForm.value,
     };
 
-    console.log(this.addAppointmentModel);
     this.appointmentService
       .createAppointment(this.addAppointmentModel)
       .subscribe((response) => {
