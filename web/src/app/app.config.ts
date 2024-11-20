@@ -16,7 +16,6 @@ import {
 } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideToastr, ToastrModule } from 'ngx-toastr';
-import { OAuthModule, provideOAuthClient } from 'angular-oauth2-oidc';
 
 export const provideTranslation = () => ({
   defaultLanguage: environment.defaultLanguage,

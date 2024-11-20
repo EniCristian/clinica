@@ -1,10 +1,4 @@
-using Clinica.Infrastructure.Identity;
 using Clinica.Middlewares;
-using IdentityModel.Client;
-using MediatR;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity.Data;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Clinica.EndpointDefinitions.Users;
 

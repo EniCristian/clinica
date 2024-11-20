@@ -14,15 +14,9 @@ namespace Clinica.EndpointDefinitions.Users;
 public static class UsersHandlers
 {
     [AllowAnonymous]
-    public static async Task<IResult> LoginUser([FromBody] LoginDto dto, ISender sender)
+    public static async Task<IResult> LoginUser([FromBody] LoginCommand command, ISender sender)
     {
-        var loginRequest = new LoginCommand()
-        {
-            Username = dto.Username,
-            Password = dto.Password,
-            RememberMe = dto.RememberMe
-        };
-        var response = await sender.Send(loginRequest);
+        var response = await sender.Send(command);
         return Results.Ok(response);
     }
 
@@ -40,7 +34,7 @@ public static class UsersHandlers
     [AllowAnonymous]
     public static async Task<IResult> RegisterUser([FromBody] RegistrationDto registrationDto, ISender sender)
     {
-        var request = new RegistrationRequest
+        var request = new RegistrationCommand
         {
             RegistrationDto = registrationDto
         };

@@ -17,7 +17,6 @@ public class UpdateUserHandler(IApplicationUsersRepository applicationUsersRepos
             var user = await applicationUsersRepository.GetUser(request.UpdateUserDto.Email);
             user.FirstName = request.UpdateUserDto.FirstName;
             user.LastName = request.UpdateUserDto.LastName;
-            user.DateOfBirth = request.UpdateUserDto.DateOfBirth;
             user.ProfilePicture = request.UpdateUserDto.ProfilePicture;
             user.Email = request.UpdateUserDto.Email;
 

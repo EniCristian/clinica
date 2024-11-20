@@ -1,13 +1,12 @@
 ﻿using Clinica.Application.Common.Interfaces;
 using Clinica.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 
 namespace Clinica.Infrastructure.Identity;
 
-public class ApplicationUsersRepository(UserManager<ApplicationUser> userManager) : IApplicationUsersRepository
+public class ApplicationUsersRepository(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager) : IApplicationUsersRepository
 {
-    public async Task<ApplicationUser?> UpdateUser(ApplicationUser updatedUser)
+    public async Task UpdateUser(UserDetails updatedUser)
     {
         var user = await userManager.FindByIdAsync(updatedUser.Id);
         if (user != null)
@@ -15,13 +14,10 @@ public class ApplicationUsersRepository(UserManager<ApplicationUser> userManager
             user.FirstName = updatedUser.FirstName;
             user.LastName = updatedUser.LastName;
             user.Email = updatedUser.Email;
-            user.DateOfBirth = updatedUser.DateOfBirth;
             user.ProfilePicture = updatedUser.ProfilePicture;
             await userManager.UpdateAsync(user);
-            return user;
         }
 
-        return null;
     }
 
     public async Task<bool> DeleteUser(string email)
@@ -36,9 +32,35 @@ public class ApplicationUsersRepository(UserManager<ApplicationUser> userManager
         return false;
     }
 
-    public async Task<ApplicationUser?> GetUser(string email)
+    public async Task<UserDetails?> GetUser(string email)
     {
-        return await userManager.FindByEmailAsync(email);
+        var user = await userManager.FindByEmailAsync(email);
+        if (user != null)
+        {
+            var roles = await userManager.GetRolesAsync(user);
+            return new UserDetails
+            {
+                Id = user.Id,
+                Username = user.UserName,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                Roles = roles,
+            };
+        }
+
+        return null;
+    }
+
+    public async Task<bool> IsValidUserAsync(string email, string password)
+    {
+        var user = await userManager.FindByNameAsync(email);
+        if (user == null)
+        {
+            return false;
+        }
+
+        return await userManager.CheckPasswordAsync(user, password);
     }
 
     public async Task<ApplicationUser?> GetUser(Guid id)

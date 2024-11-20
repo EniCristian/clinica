@@ -6,15 +6,8 @@ namespace Clinica.Domain.Entities
     {
         public DateTime Expiration { get; set; }
 
-        public TokenType Type { get; set; }
+        public required string Username { get; set; }
 
-        public ApplicationUser User { get; set; }
-
-        public string Value { get; set; }
-    }
-
-    public enum TokenType
-    {
-        RefreshToken = 1
+        public required string RefreshToken { get; set; }
     }
 }

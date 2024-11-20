@@ -4,8 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { AuthUser } from './model/auth-user.model';
-import * as jwt_decode from 'jwt-decode';
-import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +14,7 @@ export class AuthService {
 
   private readonly ACCESS_TOKEN_KEY = 'accessToken';
   private readonly REFRESH_TOKEN_KEY = 'refreshToken';
+  private readonly usersUrl = `${environment.apiBaseUrl}/users`;
 
   constructor(private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<AuthUser | null>(
@@ -38,7 +37,6 @@ export class AuthService {
     }
 
     const tokenPayload = this.parseJwt(token);
-    console.log('tokenPayload', tokenPayload);
     return this.getUserFromPayload(tokenPayload);
   }
   private retrieveToken(key: string): string | null {
@@ -46,13 +44,12 @@ export class AuthService {
   }
   login(email: string, password: string): Observable<Token> {
     return this.http
-      .post<Token>(`${environment.apiBaseUrl}/login`, { email, password })
+      .post<Token>(`${this.usersUrl}/login`, { email, password })
       .pipe(
         map((token) => {
           if (token.accessToken && token.refreshToken) {
             this.storeToken(token);
             const user = this.readAuthUserFromStorage();
-            console.log('user', user);
             this.currentUserSubject.next(user);
           }
           return token;
@@ -84,10 +81,8 @@ export class AuthService {
 
   private parseJwt(token: string): any {
     try {
-      console.log('token', token);
       const tokenWithoutPayload = token.split('.')[1];
-      console.log('tokenWithoutPayload', tokenWithoutPayload);
-      const decodedToken = atob(token);
+      const decodedToken = atob(tokenWithoutPayload);
       console.log('decodedToken', decodedToken);
       return JSON.parse(decodedToken);
     } catch (e) {

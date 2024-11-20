@@ -1,9 +1,9 @@
+using Clinica.Domain.Constants;
 using Clinica.Domain.Entities;
 using Clinica.Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Paltinul.DataAccess.Entities.Users;
 
 namespace Clinica.Infrastructure.Persistence;
 
@@ -95,7 +95,7 @@ public class ApplicationDbContextInitializer(
 
     private async Task SeedUsers()
     {
-        var administratorRole = new IdentityRole(Role.Administrator);
+        var administratorRole = new IdentityRole(Roles.Administrator);
 
         if (roleManager.Roles.All(r => r.Name != administratorRole.Name))
         {
@@ -104,7 +104,13 @@ public class ApplicationDbContextInitializer(
 
         // Default users
         var administrator = new ApplicationUser
-            { Email = "administrator@localhost", FirstName = "Administrator", LastName = "Administrator" };
+        {
+            Email = "administrator@localhost",
+            FirstName = "Administrator",
+            LastName = "Administrator",
+            EmailConfirmed = true,
+            UserName = "administrator@localhost"
+        };
 
         if (userManager.Users.All(u => u.Email != administrator.Email))
         {

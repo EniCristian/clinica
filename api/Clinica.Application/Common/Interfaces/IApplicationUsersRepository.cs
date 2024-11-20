@@ -5,7 +5,8 @@ namespace Clinica.Application.Common.Interfaces;
 
 public interface IApplicationUsersRepository
 {
-    Task<ApplicationUser?> UpdateUser(ApplicationUser updatedUser);
-    Task<bool> DeleteUser(string username);
-    Task<ApplicationUser?> GetUser(string username);
+    Task<bool> DeleteUser(string email);
+    Task<UserDetails?> GetUser(string email);
+    Task UpdateUser(UserDetails updatedUser);
+    Task<bool> IsValidUserAsync(string email, string password);
 }

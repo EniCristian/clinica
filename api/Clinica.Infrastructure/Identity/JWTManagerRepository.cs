@@ -8,37 +8,39 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
 namespace Clinica.Infrastructure.Identity;
-public class JWTManagerRepository : IJWTManagerRepository
+public class JWTManagerRepository(IConfiguration iconfiguration) : IJWTManagerRepository
 {
-    private readonly IConfiguration _iconfiguration;
-
-    public JWTManagerRepository(IConfiguration iconfiguration)
+    public Tokens GenerateToken(UserDetails userInfo)
     {
-        _iconfiguration = iconfiguration;
-    }
-    public Tokens GenerateToken(string userName)
-    {
-        return GenerateJWTTokens(userName);
+        return GenerateJWTTokens(userInfo);
     }
 
-    public Tokens GenerateRefreshToken(string username)
+    public Tokens GenerateRefreshToken(UserDetails userInfo)
     {
-        return GenerateJWTTokens(username);
+        return GenerateJWTTokens(userInfo);
     }
 
-    public Tokens GenerateJWTTokens(string userName)
+
+    public Tokens GenerateJWTTokens(UserDetails userInfo)
     {
         try
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var tokenKey = Encoding.UTF8.GetBytes(_iconfiguration["JWT:Key"]);
+            var tokenKey = Encoding.UTF8.GetBytes(iconfiguration["JWT:Key"]);
+            var claims = new List<Claim>
+            {
+                new(JwtRegisteredClaimNames.Sub, userInfo.Username),
+                new("user", userInfo.Username),
+                new("firstName", userInfo.FirstName),
+                new("lastName", userInfo.LastName),
+                new("userId", userInfo.Id),
+                new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            };
+
+            claims.AddRange(userInfo.Roles.Select(role => new Claim("role", role)));
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new Claim[]
-              {
-                new Claim(ClaimTypes.Name, userName),
-                new Claim(ClaimTypes.Email, userName)
-              }),
+                Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.Now.AddHours(12),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)
             };
@@ -65,7 +67,7 @@ public class JWTManagerRepository : IJWTManagerRepository
 
     public ClaimsPrincipal GetPrincipalFromExpiredToken(string token)
     {
-        var Key = Encoding.UTF8.GetBytes(_iconfiguration["JWT:Key"]);
+        var Key = Encoding.UTF8.GetBytes(iconfiguration["JWT:Key"]);
 
         var tokenValidationParameters = new TokenValidationParameters
         {
