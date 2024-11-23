@@ -1,1 +1,15 @@
-<p>medics-table works!</p>
+<div class="container admin-page">
+  <div class="row">
+    <app-data-table
+      [title]="'SPECIALISTS_TABLE_NAME'"
+      [routePrefix]="'/manager/manage-specialists'"
+      [columns]="columns"
+      [resourceUrl]="'/medics/paginated'"
+      [customResourceDeleteUrl]="'/medics'"
+      [startingPageSize]="5"
+      [deleteDialogData]="deleteDialogData"
+      [additionalActions]="additionalActions"
+    >
+    </app-data-table>
+  </div>
+</div>
