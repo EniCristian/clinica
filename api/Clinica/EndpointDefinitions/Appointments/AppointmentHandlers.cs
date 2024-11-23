@@ -8,13 +8,13 @@ namespace Clinica.EndpointDefinitions.Appointments;
 
 public static class AppointmentHandlers
 {
-    public static async Task<IResult> Post([FromServices] IMediator mediator, CreateAppointmentCommand createAppointmentCommand)
+    public static async Task<IResult> Create([FromServices] IMediator mediator, CreateAppointmentCommand createAppointmentCommand)
     {
         await mediator.Send(createAppointmentCommand);
         return Results.Ok();
     }
 
-    public static  async Task<IResult> GetAll( [FromServices] IMediator mediator, int pageSize, int pageNumber, string? sortParameter,string? sortOrder)
+    public static async Task<IResult> GetAll([FromServices] IMediator mediator, int pageSize, int pageNumber, string? sortParameter, string? sortOrder)
     {
         var request = new PaginatedRequest
         {

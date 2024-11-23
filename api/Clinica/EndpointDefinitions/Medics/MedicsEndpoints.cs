@@ -10,5 +10,6 @@ public static class MedicsEndpointRouteBuilderExtensions
         var booksEndpoints = endpointRouteBuilder.MapGroup("medics");
 
         booksEndpoints.MapGet(MedicsHandlers.GetMedicsAsync);
+        booksEndpoints.MapGet(MedicsHandlers.GetMedicsPaginatedAsync, "/paginated");
     }
 }
