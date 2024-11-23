@@ -45,4 +45,25 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./components/auth/auth.module').then((m) => m.AuthModule),
   },
+  {
+    path: 'appointments',
+    loadChildren: () =>
+      import('./components/admin/appointments/appointments.module').then(
+        (m) => m.AppointmentsModule
+      ),
+  },
+  {
+    path: 'specialities',
+    loadChildren: () =>
+      import('./components/admin/specialities/specialities.module').then(
+        (m) => m.SpecialitiesModule
+      ),
+  },
+  {
+    path: 'medics',
+    loadChildren: () =>
+      import('./components/admin/medics/medics.module').then(
+        (m) => m.MedicsModule
+      ),
+  },
 ];

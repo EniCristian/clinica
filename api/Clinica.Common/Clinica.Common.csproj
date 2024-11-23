@@ -59,6 +59,14 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>Footer.Designer.cs</LastGenOutput>
       </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Material.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Material.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Specialities.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Specialities.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
@@ -116,6 +124,16 @@
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>Footer.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Material.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Material.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Specialities.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Specialities.resx</DependentUpon>
       </Compile>
     </ItemGroup>
 

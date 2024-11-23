@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { SpecialityDetails } from './speciality.model';
-import { fail } from 'assert';
 
 @Component({
   selector: 'app-specialities',

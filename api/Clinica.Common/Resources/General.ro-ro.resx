@@ -17,4 +17,10 @@
     <data name="rights_reserved" xml:space="preserve">
         <value>Toate drepturile sunt rezervate de</value>
     </data>
+    <data name="description" xml:space="preserve">
+        <value>Descriere</value>
+    </data>
+    <data name="name" xml:space="preserve">
+        <value>Nume</value>
+    </data>
 </root>

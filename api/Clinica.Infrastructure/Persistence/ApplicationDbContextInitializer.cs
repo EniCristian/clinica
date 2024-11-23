@@ -1,6 +1,6 @@
 using Clinica.Domain.Constants;
 using Clinica.Domain.Entities;
-using Clinica.Infrastructure.Identity;
+using Clinica.Infrastructure.Persistence.SeedProviders;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -49,6 +49,7 @@ public class ApplicationDbContextInitializer(
         SeedContactInformation();
         SeedSpecialists();
         AddPatients();
+        context.Appointments.AddRange(AppointmentsSeedProvider.Appointments);
 
         await context.SaveChangesAsync();
     }
@@ -106,8 +107,6 @@ public class ApplicationDbContextInitializer(
         var administrator = new ApplicationUser
         {
             Email = "administrator@localhost",
-            FirstName = "Administrator",
-            LastName = "Administrator",
             EmailConfirmed = true,
             UserName = "administrator@localhost"
         };
@@ -138,7 +137,6 @@ public class ApplicationDbContextInitializer(
                     Street = "str. Cuza Voda, 44 a"
                 }
             });
-            ;
         }
     }
 
@@ -146,71 +144,16 @@ public class ApplicationDbContextInitializer(
     {
         if (!context.Specialities.Any())
         {
-            var surgery = new Speciality
-            {
-                Id = Guid.NewGuid(),
-                Name = "Cirurgie",
-                Description = "Cirurgia este o ramură a medicinei care se ocupă cu tratamentul bolilor, leziunilor și malformațiilor prin intervenții chirurgicale."
-            };
+            context.Specialities.Add(SpecialitiesSeedProvider.Surgery);
+            context.Specialities.Add(SpecialitiesSeedProvider.Gynechology);
+            context.Specialities.Add(SpecialitiesSeedProvider.ReproductiveMedicine);
+            context.Specialities.Add(SpecialitiesSeedProvider.Ecography);
 
-            var gynechology = new Speciality
-            {
-                Id = Guid.NewGuid(),
-                Name = "Ginecologie",
-                Description = "Ginecologia este o ramură a medicinei care se ocupă cu studiul și tratamentul bolilor sistemului reproducător feminin."
-            };
-
-            var reproductiveMedicine = new Speciality
-            {
-                Id = Guid.NewGuid(),
-                Name = "Medicină reproductivă",
-                Description = "Medicina reproductivă este o ramură a medicinei care se ocupă cu studiul și tratamentul problemelor de fertilitate."
-            };
-
-            var ecography = new Speciality
-            {
-                Id = Guid.NewGuid(),
-                Name = "Ecografie",
-                Description = "Ecografia este o metodă de diagnostic medical care folosește ultrasunetele pentru a vizualiza structurile interne ale corpului."
-            };
-
-            context.Specialities.Add(surgery);
-            context.Specialities.Add(gynechology);
-            context.Specialities.Add(reproductiveMedicine);
-            context.Specialities.Add(ecography);
-
-            context.Medics.Add(new Medic
-            {
-                FirstName = "Serghei",
-                LastName = "Zugravîi",
-                ImageUrl = "doctor1.jpg",
-                SepecialityId = reproductiveMedicine.Id,
-                Speciality = reproductiveMedicine
-            });
-            context.Medics.Add(new Medic
-            {
-                FirstName = "Cornelia",
-                LastName = "Istrate",
-                ImageUrl = "doctor2.jpg",
-                SepecialityId = ecography.Id,
-                Speciality = ecography
-            });
-            context.Medics.Add(new Medic
-            {
-                FirstName = "Elina",
-                LastName = "Danilova",
-                ImageUrl = "doctor3.jpg",
-                SepecialityId = gynechology.Id,
-                Speciality = gynechology
-            });
-            context.Medics.Add(new Medic
-            {
-                FirstName = "Sergiu",
-                LastName = "Bujor",
-                ImageUrl = "doctor5.jpg",
-                SepecialityId = surgery.Id,
-                Speciality = surgery
-            });
+            context.Medics.Add(MedicsSeedProviders.ReproductiveMedic);
+            context.Medics.Add(MedicsSeedProviders.GynecologyMedic2);
+            context.Medics.Add(MedicsSeedProviders.EcographyMedic);
+            context.Medics.Add(MedicsSeedProviders.GynecologyMedic);
+            context.Medics.Add(MedicsSeedProviders.SurgeryMedic);
         }
     }
 }

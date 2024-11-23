@@ -10,7 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { SortModel } from './model/sort.model';
 import { DatePipe } from '@angular/common';
-import { DeleteConfirmationModalComponent } from '../../common/delete-confirmation-modal/delete-confirmation-modal.component';
+import { DeleteConfirmationModalComponent } from '../../../common/delete-confirmation-modal/delete-confirmation-modal.component';
 import { FilterValueModel } from './model/filter-value.model';
 import { ActionModel } from './model/action.model';
 import { Sort } from '@angular/material/sort';
@@ -72,7 +72,7 @@ export class DataTableComponent implements AfterViewInit, OnInit {
   @Input()
   simpleHeader = false;
   @Input()
-  routePrefix!: string;
+  routePrefix: string = '';
   @Input()
   uniqueIdentifier = 'id';
   @Input()
@@ -80,19 +80,19 @@ export class DataTableComponent implements AfterViewInit, OnInit {
   @Input()
   deleteDialogData: any;
   @Input()
-  sort!: SortModel;
+  sort: SortModel | undefined;
   @Input()
   additionalActions: ActionModel[] = [];
 
-  columns!: Map<string, ColumnModel>;
-  allHeaderColumns!: string[];
-  headerColumns!: string[];
-  resourceUrl!: string;
+  columns: Map<string, ColumnModel> | undefined = undefined;
+  allHeaderColumns: string[] = [];
+  headerColumns: string[] | undefined = undefined;
+  resourceUrl: string = '';
   availableActions = true;
   data: any;
 
-  dataSource: any;
-  pagination!: PaginationModel;
+  dataSource: any | undefined = undefined;
+  pagination: PaginationModel = new PaginationModel(0, 0);
 
   filters: FilterValueModel[] = [];
 
@@ -169,7 +169,7 @@ export class DataTableComponent implements AfterViewInit, OnInit {
     this.getAllPaginated(this.pagination, this.sort);
   }
 
-  onSort(event: Sort): void {
+  onSort(event: any): void {
     if (event.direction && event.active) {
       this.getAllPaginated(
         this.pagination,
@@ -195,16 +195,21 @@ export class DataTableComponent implements AfterViewInit, OnInit {
     const url = this.customResourceDeleteUrl
       ? this.customResourceDeleteUrl
       : this.resourceUrl;
-
+    if (!url) {
+      return;
+    }
     this.dataRequestService.delete(url, id).subscribe(() => {
       this.toastrService.success(
-        this.translateService.instant('MATERIAL_DATA_TABLE_DELETE_SUCCESSFUL')
+        this.translateService.instant('material_data_table_delete_successful')
       );
       this.refresh();
     });
   }
 
-  private getAllPaginated(pagination: PaginationModel, sort?: SortModel): void {
+  private getAllPaginated(
+    pagination: PaginationModel,
+    sort: SortModel | undefined = undefined
+  ): void {
     if (this.resourceUrl) {
       this.dataRequestService
         .getAll(this.resourceUrl, this.data, pagination, sort, this.filters)
@@ -221,7 +226,10 @@ export class DataTableComponent implements AfterViewInit, OnInit {
     }
   }
 
-  private paginateData(pagination: PaginationModel, sort?: SortModel): void {
+  private paginateData(
+    pagination: PaginationModel,
+    sort: SortModel | undefined
+  ): void {
     this.pagination = {
       ...pagination,
       totalItems: this.data.pagination.totalItems,
@@ -229,7 +237,7 @@ export class DataTableComponent implements AfterViewInit, OnInit {
     let values = this.data.items;
     if (sort !== undefined) {
       values = values.sort(
-        (n1: any, n2: any) =>
+        (n1: { [x: string]: number }, n2: { [x: string]: number }) =>
           (n1[sort.parameter] < n2[sort.parameter] ? -1 : 1) *
           (sort.order === 'asc' ? 1 : -1)
       );
@@ -240,11 +248,11 @@ export class DataTableComponent implements AfterViewInit, OnInit {
     );
   }
 
-  private getNestedProperty(row: any, column: any): string {
+  private getNestedProperty(row: any, column: string): string {
     const columnNestedProperties = column.split('.');
     let result = '';
     let additionalParam = row;
-    columnNestedProperties.forEach((property: any) => {
+    columnNestedProperties.forEach((property) => {
       result = additionalParam[property];
       additionalParam = result;
     });
@@ -269,8 +277,12 @@ export class DataTableComponent implements AfterViewInit, OnInit {
     return [...result].join(', ');
   }
 
-  getColumnValue(row: any, column: string): string {
-    const columnSpecialType = this.columns.get(column)?.specialType;
+  getColumnValue(row: any, column: string): string | null {
+    let selectedColumn = this.columns?.get(column);
+    if (!selectedColumn) {
+      return null;
+    }
+    const columnSpecialType = selectedColumn.specialType;
     if (columnSpecialType === 'listValue') {
       return this.getListNestedProperty(row, column);
     } else {
@@ -290,20 +302,31 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 
       if (columnSpecialType === 'date') {
         const pipe = new DatePipe('en-US');
-        return pipe.transform(row[column], 'dd/MM/yyyy - HH:mm') ?? '';
+        return pipe.transform(row[column], 'dd/MM/yyyy - HH:mm');
       } else if (columnSpecialType === 'shortDate') {
         const pipe = new DatePipe('en-US');
-        return pipe.transform(row[column], 'dd/MM/yyyy') ?? '';
+        return pipe.transform(row[column], 'dd/MM/yyyy');
       } else if (columnSpecialType === 'binaryValue') {
         return row[column] === 0
           ? this.translateService.instant('GENERAL_NEGATIVE')
           : this.translateService.instant('GENERAL_POSITIVE');
       }
     }
+    let selectedColumnValue = this.columns?.get(column);
+    if (!selectedColumnValue) {
+      return null;
+    }
+
+    if (selectedColumnValue.specialType === 'consultation-status') {
+      return this.translateService.instant(
+        'CONSULTATIONS_STATUS_' + row[column].toUpperCase()
+      );
+    }
+
     return row[column];
   }
 
-  onFilterChanged(event: FilterValueModel[]): void {
+  onFilterChanged(event: any): void {
     this.filters = event;
     this.pagination = new PaginationModel(
       this.startingPageSize,

@@ -19,7 +19,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonsModule,
     FormsModule,
     ReactiveFormsModule,
-
     AppointmentRoutingModule,
     BannerComponent,
   ],

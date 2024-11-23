@@ -5,17 +5,10 @@ using MediatR;
 namespace Clinica.Application.Translations;
 
 public record TranslationsQuery(CultureInfo culture): IRequest<IDictionary<string, string>>;
-internal class TranslationsQueryHandler : IRequestHandler<TranslationsQuery, IDictionary<string, string>>
+internal class TranslationsQueryHandler(ITranslationService translationService) : IRequestHandler<TranslationsQuery, IDictionary<string, string>>
 {
-    private readonly ITranslationService _translationService;
-
-    public TranslationsQueryHandler(ITranslationService translationService)
-    {
-        _translationService = translationService;
-    }
-
     public async Task<IDictionary<string, string>> Handle(TranslationsQuery request, CancellationToken cancellationToken)
     {
-        return _translationService.GetAll(request.culture);
+        return translationService.GetAll(request.culture);
     }
 }

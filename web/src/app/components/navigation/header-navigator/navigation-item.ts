@@ -54,7 +54,29 @@ const publicNavigationItems: NavigationRoute[] = [
   },
 ];
 
-const privateNavigationItems: NavigationRoute[] = [];
+const privateNavigationItems: NavigationRoute[] = [
+  {
+    moduleName: 'appointments',
+    path: 'appointments',
+    title: 'appointment_title',
+    roles: [],
+    submenu: [],
+  },
+  {
+    moduleName: 'specialities',
+    path: 'specialities',
+    title: 'specialities_name',
+    roles: [],
+    submenu: [],
+  },
+  {
+    moduleName: 'medics',
+    path: 'medics',
+    title: 'doctors_title',
+    roles: [],
+    submenu: [],
+  },
+];
 
 class NavigationItemsWrapper {
   public static getNavigationMenuItems(

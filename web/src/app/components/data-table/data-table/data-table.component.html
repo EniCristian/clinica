@@ -37,20 +37,33 @@
                 <ng-container
                   *ngIf="columns.get(column)?.sortable; else notSortable"
                 >
-                  <mat-header-cell mat-sort-header *matHeaderCellDef>
+                  <mat-header-cell
+                    mat-sort-header
+                    *matHeaderCellDef
+                    class="{{ columns.get(column)?.class ?? '' }}"
+                  >
                     {{ columns.get(column)?.headerName ?? "" | translate }}
                   </mat-header-cell>
                 </ng-container>
-                <ng-template #notSortable>
+                <ng-template
+                  #notSortable
+                  class="{{ columns.get(column)?.class ?? '' }}"
+                >
                   <mat-header-cell *matHeaderCellDef>
                     {{ columns.get(column)?.headerName ?? "" | translate }}
                   </mat-header-cell>
                 </ng-template>
+                <mat-cell
+                  *matCellDef="let row"
+                  class="{{ columns.get(column)?.class ?? '' }}"
+                >
+                  {{ getColumnValue(row, column) }}
+                </mat-cell>
               </ng-container>
 
               <ng-container [matColumnDef]="'actions'">
                 <mat-header-cell *matHeaderCellDef>{{
-                  "MATERIAL_DATA_TABLE_ACTIONS_HEADER" | translate
+                  "material_data_table_actions_header" | translate
                 }}</mat-header-cell>
                 <mat-cell *matCellDef="let row; let i = index">
                   <button
@@ -60,11 +73,7 @@
                     class="btn-tbl-edit"
                     (click)="action.callback(row)"
                   >
-                    <mat-icon
-                      [ariaLabel]="'{{action.name}}'"
-                      class="col-white"
-                      >{{ action.icon }}</mat-icon
-                    >
+                    <mat-icon class="col-white">{{ action.icon }}</mat-icon>
                   </button>
                   <button
                     mat-icon-button

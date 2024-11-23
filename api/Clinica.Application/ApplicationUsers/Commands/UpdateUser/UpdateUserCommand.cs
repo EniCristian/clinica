@@ -14,13 +14,13 @@ public class UpdateUserHandler(IApplicationUsersRepository applicationUsersRepos
     {
         try
         {
-            var user = await applicationUsersRepository.GetUser(request.UpdateUserDto.Email);
-            user.FirstName = request.UpdateUserDto.FirstName;
-            user.LastName = request.UpdateUserDto.LastName;
-            user.ProfilePicture = request.UpdateUserDto.ProfilePicture;
-            user.Email = request.UpdateUserDto.Email;
-
-            await applicationUsersRepository.UpdateUser(user);
+            // var user = await applicationUsersRepository.GetUser(request.UpdateUserDto.Email);
+            // user.FirstName = request.UpdateUserDto.FirstName;
+            // user.LastName = request.UpdateUserDto.LastName;
+            // user.ProfilePicture = request.UpdateUserDto.ProfilePicture;
+            // user.Email = request.UpdateUserDto.Email;
+            //
+            // await applicationUsersRepository.UpdateUser(user);
             return Result.Success();
         }
         catch (Exception ex)

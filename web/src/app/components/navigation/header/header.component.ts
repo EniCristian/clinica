@@ -1,6 +1,5 @@
 import { Component, ElementRef, HostListener } from '@angular/core';
 import {
-  NavigationItemsWrapper,
   NavigationRoute,
   privateNavigationItems,
   publicNavigationItems,
@@ -46,7 +45,6 @@ export class HeaderComponent {
   initMenuLinks(): void {
     this.authService.currentUser.subscribe((user) => {
       let navigationMenuItemsTemp: NavigationRoute[] = [];
-      console.log('user', user);
       if (user) {
         navigationMenuItemsTemp = privateNavigationItems;
       } else navigationMenuItemsTemp = publicNavigationItems;

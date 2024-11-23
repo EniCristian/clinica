@@ -83,7 +83,6 @@ export class AuthService {
     try {
       const tokenWithoutPayload = token.split('.')[1];
       const decodedToken = atob(tokenWithoutPayload);
-      console.log('decodedToken', decodedToken);
       return JSON.parse(decodedToken);
     } catch (e) {
       return null;

@@ -1,0 +1,13 @@
+<div class="container admin-page">
+  <div class="row">
+    <app-data-table
+      [title]="'specialities_name'"
+      [routePrefix]="'/manager/manage-specialities'"
+      [columns]="columns"
+      [resourceUrl]="'/specialities'"
+      [startingPageSize]="5"
+      [deleteDialogData]="deleteDialogData"
+    >
+    </app-data-table>
+  </div>
+</div>
