@@ -14,7 +14,7 @@ internal class GetAllAppointmentsQueryHandler(IApplicationDbContext context, IMa
 {
     public async Task<PaginatedResponse<SpecialityDto>> Handle(GetSpecialitiesQuery request, CancellationToken cancellationToken)
     {
-        var specialities = await context.Specialities.GetPaginated(request.Request);
+        var specialities = await context.Specialities.GetPaginated(request.Request, true);
 
         return new PaginatedResponse<SpecialityDto>
         {

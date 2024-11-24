@@ -69,11 +69,38 @@ namespace Clinica.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete speciality {{name}}?.
+        /// </summary>
+        internal static string modal_delete_message {
+            get {
+                return ResourceManager.GetString("modal_delete_message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete speciality.
+        /// </summary>
+        internal static string modal_delete_title {
+            get {
+                return ResourceManager.GetString("modal_delete_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Specialities.
         /// </summary>
         internal static string name {
             get {
                 return ResourceManager.GetString("name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Speciality.
+        /// </summary>
+        internal static string single_name {
+            get {
+                return ResourceManager.GetString("single_name", resourceCulture);
             }
         }
     }

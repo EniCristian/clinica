@@ -1,4 +1,5 @@
 using Clinica.Application.Appointments.Commands;
+using Clinica.Application.Appointments.Queries;
 using Clinica.Application.Common.Models;
 using Clinica.Application.Specialities.Queries;
 using MediatR;
@@ -23,7 +24,7 @@ public static class AppointmentHandlers
             SortOrder = sortOrder,
             SortParameter = sortParameter
         };
-        var specialities = await mediator.Send(new GetSpecialitiesQuery(request));
-        return Results.Ok(specialities);
+        var appointments = await mediator.Send(new GetAllAppointmentsQuery(request));
+        return Results.Ok(appointments);
     }
 }

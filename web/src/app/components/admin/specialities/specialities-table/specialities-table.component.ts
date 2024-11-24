@@ -33,8 +33,8 @@ export class SpecialitiesTableComponent {
   ]);
 
   deleteDialogData = {
-    title: 'SPECIALITIES_MODAL_DELETE_TITLE',
-    message: 'SPECIALITIES_MODAL_DELETE_MESSAGE',
+    title: 'specialities_modal_delete_title',
+    message: 'specialities_modal_delete_message',
     messageParams: 'name',
   };
 }

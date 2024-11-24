@@ -24,4 +24,13 @@
     <data name="consultation_duration" xml:space="preserve">
         <value>Duratiton (mins)</value>
     </data>
+    <data name="single_name" xml:space="preserve">
+        <value>Speciality</value>
+    </data>
+    <data name="modal_delete_message" xml:space="preserve">
+        <value>Are you sure you want to delete speciality {{name}}?</value>
+    </data>
+    <data name="modal_delete_title" xml:space="preserve">
+        <value>Delete speciality</value>
+    </data>
 </root>

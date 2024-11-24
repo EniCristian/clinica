@@ -669,5 +669,20 @@ tr.group:hover {
   }
 }
 .mat-column-actions {
-  max-width: 100px;
+  max-width: 150px;
+  button {
+    padding: 6px 4px !important;
+  }
+}
+
+mat-paginator {
+  mat-form-field {
+    .mat-mdc-text-field-wrapper {
+      padding: 0;
+    }
+    mat-select {
+      padding: 10px;
+      min-width: 100%;
+    }
+  }
 }

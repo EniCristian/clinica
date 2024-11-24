@@ -69,6 +69,15 @@ namespace Clinica.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string email {
+            get {
+                return ResourceManager.GetString("email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to We answer you as soon as possible!.
         /// </summary>
         public static string email_answer_message {
@@ -87,11 +96,29 @@ namespace Clinica.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Phone number.
+        /// </summary>
+        public static string phone_number {
+            get {
+                return ResourceManager.GetString("phone_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All rights are reserved by.
         /// </summary>
         public static string rights_reserved {
             get {
                 return ResourceManager.GetString("rights_reserved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Surname.
+        /// </summary>
+        public static string surname {
+            get {
+                return ResourceManager.GetString("surname", resourceCulture);
             }
         }
     }

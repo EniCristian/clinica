@@ -23,4 +23,13 @@
     <data name="name" xml:space="preserve">
         <value>Nume</value>
     </data>
+    <data name="surname" xml:space="preserve">
+        <value>Prenume</value>
+    </data>
+    <data name="phone_number" xml:space="preserve">
+        <value>Numar de telefon</value>
+    </data>
+    <data name="email" xml:space="preserve">
+        <value>Email</value>
+    </data>
 </root>

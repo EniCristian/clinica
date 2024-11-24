@@ -7,7 +7,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./delete-confirmation-modal.component.scss'],
 })
 export class DeleteConfirmationModalComponent {
-  messageResource: string = 'materiall_data_table_delete_modal_title';
+  messageResource: string = 'material_data_table_delete_modal_title';
   title: string = 'material_data_table_delete_modal_title';
   confirmButtonText: string = 'material_data_table_delete_modal_confirm_button';
   cancelButtonText: string = 'material_data_table_delete_modal_cancel_button';
@@ -19,12 +19,15 @@ export class DeleteConfirmationModalComponent {
   ) {
     if (data) {
       if (data.message) {
+        console.log(data.message);
         this.messageResource = data.message;
       }
       if (data.messageParams) {
+        console.log(data.messageParams);
         this.messageParams = data.messageParams;
       }
       if (data.title) {
+        console.log(data.title);
         this.title = data.title;
       }
       if (data.confirmButtonText) {

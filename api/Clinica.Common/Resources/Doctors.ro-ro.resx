@@ -20,4 +20,10 @@
     <data name="our_doctors_description" xml:space="preserve">
         <value>Competențele profesioniștilor noștri medicali sunt de neegalat, asigurând rezultate optime pentru pacienți printr-un tratament priceput și un angajament deosebit.</value>
     </data>
+    <data name="modal_delete_title" xml:space="preserve">
+        <value>Șterge specialistul</value>
+    </data>
+    <data name="modal_delete_message" xml:space="preserve">
+        <value>Sigur doriți să ștergeți specialistul {{lastName}} {{firstName}}?</value>
+    </data>
 </root>

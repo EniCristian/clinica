@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FilterValueModel } from '../../../data-table/data-table/model/filter-value.model';
-import { Observable } from 'rxjs';
 import { ColumnModel } from '../../../data-table/data-table/model/column.model';
 import { ActionModel } from '../../../data-table/data-table/model/action.model';
 import { Router } from '@angular/router';
@@ -15,28 +13,28 @@ export class MedicsTableComponent {
     [
       'lastName',
       {
-        headerName: 'specialists_last_name_table_header',
+        headerName: 'general_surname',
         sortable: true,
       },
     ],
     [
       'firstName',
       {
-        headerName: 'specialists_first_name_table_header',
+        headerName: 'general_name',
         sortable: true,
       },
     ],
     [
       'speciality.name',
       {
-        headerName: 'specialists_specialities_table_header',
+        headerName: 'specialities_single_name',
         sortable: false,
       },
     ],
     [
       'phoneNumber',
       {
-        headerName: 'specialists_phone_number_table_header',
+        headerName: 'general_phone_number',
         sortable: true,
       },
     ],
@@ -44,8 +42,8 @@ export class MedicsTableComponent {
   ]);
 
   deleteDialogData = {
-    title: 'specialists_modal_delete_title',
-    message: 'specialists_modal_delete_messagespecialists_modal_delete_message',
+    title: 'doctors_modal_delete_title',
+    message: 'doctors_modal_delete_message',
     messageParams: ['title', 'lastName', 'firstName'],
   };
 

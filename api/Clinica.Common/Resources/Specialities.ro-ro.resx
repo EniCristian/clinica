@@ -17,4 +17,13 @@
     <data name="consultation_duration" xml:space="preserve">
         <value>Durata (min)</value>
     </data>
+    <data name="single_name" xml:space="preserve">
+        <value>Specialitate</value>
+    </data>
+    <data name="modal_delete_title" xml:space="preserve">
+        <value>Șterge specialitatea</value>
+    </data>
+    <data name="modal_delete_message" xml:space="preserve">
+        <value>Sigur doriți să ștergeți specialitatea {{name}}?</value>
+    </data>
 </root>

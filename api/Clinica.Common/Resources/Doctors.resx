@@ -27,4 +27,10 @@
     <data name="our_doctors_description" xml:space="preserve">
         <value>The proficiency of our medical professionals is unmatched, ensuring optimal patient outcomes through skillful treatment and unwavering commitment.</value>
     </data>
+    <data name="modal_delete_title" xml:space="preserve">
+        <value>Delete specilist</value>
+    </data>
+    <data name="modal_delete_message" xml:space="preserve">
+        <value>Are you sure you want to delete specialist {{lastName}} {{firstName}}?</value>
+    </data>
 </root>
