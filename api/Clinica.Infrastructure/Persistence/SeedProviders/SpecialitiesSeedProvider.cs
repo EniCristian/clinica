@@ -8,6 +8,7 @@ public class SpecialitiesSeedProvider
     {
         Id = Guid.NewGuid(),
         Name = "Cirurgie",
+        ImageUrl = "assets/images/department1.jpg",
         Description = "Cirurgia este o ramură a medicinei care se ocupă cu tratamentul bolilor, leziunilor și malformațiilor prin intervenții chirurgicale.",
         ConsultationDurationInMinutes = 30
     };
@@ -16,6 +17,7 @@ public class SpecialitiesSeedProvider
     {
         Id = Guid.NewGuid(),
         Name = "Ginecologie",
+        ImageUrl = "assets/images/department2.jpg",
         Description = "Ginecologia este o ramură a medicinei care se ocupă cu studiul și tratamentul bolilor sistemului reproducător feminin.",
         ConsultationDurationInMinutes = 45
     };
@@ -24,6 +26,7 @@ public class SpecialitiesSeedProvider
     {
         Id = Guid.NewGuid(),
         Name = "Medicină reproductivă",
+        ImageUrl = "assets/images/department3.jpg",
         Description = "Medicina reproductivă este o ramură a medicinei care se ocupă cu studiul și tratamentul problemelor de fertilitate.",
         ConsultationDurationInMinutes = 60
     };

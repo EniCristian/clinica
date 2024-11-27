@@ -1,1 +1,89 @@
-<p>specialities-create-edit works!</p>
+<div class="container admin-page">
+  <div class="row">
+    <div class="row clearfix">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+        <div class="card">
+          <div class="header">
+            <h2>{{ title | translate }}</h2>
+          </div>
+          <div class="body">
+            <form class="m-4" [formGroup]="docForm" (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+                  <mat-form-field
+                    class="example-full-width mb-3"
+                    appearance="outline"
+                  >
+                    <mat-label>{{ "general_name" | translate }}</mat-label>
+                    <input
+                      type="text"
+                      matInput
+                      formControlName="name"
+                      required
+                    />
+                    <mat-error
+                      *ngIf="docForm.controls['name']?.errors?.['normalized']"
+                    >
+                      {{ "VALIDATION_VALUE_NORMALIZATION_ERROR" | translate }}
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+                  <mat-form-field
+                    class="example-full-width mb-3"
+                    appearance="outline"
+                  >
+                    <mat-label
+                      >{{ "general_description" | translate }}
+                    </mat-label>
+                    <textarea
+                      matInput
+                      formControlName="description"
+                      [maxLength]="5000"
+                    ></textarea>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+                  <mat-form-field
+                    class="example-full-width mb-3"
+                    appearance="outline"
+                  >
+                    <mat-label>{{
+                      "SPECIALITIES_ADD_EDIT_COMPONENT_CONSULTATION_IN_MINUTES_LABEL"
+                        | translate
+                    }}</mat-label>
+                    <input
+                      type="number"
+                      matInput
+                      formControlName="consultationDurationInMinutes"
+                      required
+                    />
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
+                  <button
+                    class="mr-3"
+                    [disabled]="!docForm.valid"
+                    mat-raised-button
+                    color="primary"
+                  >
+                    {{ "GENERAL_SUBMIT_BUTTON" | translate }}
+                  </button>
+                  <button type="button" mat-button (click)="onCancel()">
+                    {{ "GENERAL_CANCEL_BUTTON" | translate }}
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

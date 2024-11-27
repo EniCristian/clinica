@@ -18,13 +18,13 @@
           <ng-template carouselSlide *ngFor="let specility of specialities">
             <div class="single-slide">
               <div class="slide-img">
-                <img src="{{ specility.imagePath }}" alt="" class="img-fluid" />
+                <img src="{{ specility.imageUrl }}" alt="" class="img-fluid" />
                 <div class="hover-state">
                   <a href="#"><i class="fa fa-stethoscope"></i></a>
                 </div>
               </div>
               <div class="single-department item-padding text-center">
-                <h3>{{ specility.title }}</h3>
+                <h3>{{ specility.name }}</h3>
                 <p>{{ specility.description }}</p>
               </div>
             </div>
