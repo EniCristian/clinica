@@ -3,18 +3,17 @@ using Clinica.Application.Common.Helpers;
 using Clinica.Application.Common.Interfaces;
 using Clinica.Application.Common.Models;
 using Clinica.Application.Medics;
-using Clinica.Application.Specialities.Queries;
 using MediatR;
 
-namespace Clinica.Application.Appointments.Queries;
+namespace Clinica.Application.Specialities.Queries;
 
-public class GetAllAppointmentsQuery(PaginatedRequest Request) : IRequest<PaginatedResponse<SpecialityDto>>;
+public record GetSpecialitiesPaginatedQuery(PaginatedRequest Request) : IRequest<PaginatedResponse<SpecialityDto>>;
 
-internal class GetAllAppointmentsQueryHandler(IApplicationDbContext context, IMapper mapper) : IRequestHandler<GetSpecialitiesPaginatedQuery, PaginatedResponse<SpecialityDto>>
+internal class GetSpecialitiesPaginatedQueryHandler(IApplicationDbContext context, IMapper mapper) : IRequestHandler<GetSpecialitiesPaginatedQuery, PaginatedResponse<SpecialityDto>>
 {
     public async Task<PaginatedResponse<SpecialityDto>> Handle(GetSpecialitiesPaginatedQuery request, CancellationToken cancellationToken)
     {
-        var specialities = await context.Specialities.GetPaginated(request.Request, true);
+        var specialities = await context.Specialities.GetPaginated(request.Request);
 
         return new PaginatedResponse<SpecialityDto>
         {

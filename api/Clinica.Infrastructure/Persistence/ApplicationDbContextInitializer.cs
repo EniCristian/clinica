@@ -148,6 +148,14 @@ public class ApplicationDbContextInitializer(
             context.Specialities.Add(SpecialitiesSeedProvider.Gynechology);
             context.Specialities.Add(SpecialitiesSeedProvider.ReproductiveMedicine);
             context.Specialities.Add(SpecialitiesSeedProvider.Ecography);
+            context.Specialities.Add(SpecialitiesSeedProvider.Dermatology);
+            context.Specialities.Add(SpecialitiesSeedProvider.Neurology);
+            context.Specialities.Add(SpecialitiesSeedProvider.Cardiology);
+            context.Specialities.Add(SpecialitiesSeedProvider.Ophthalmology);
+            context.Specialities.Add(SpecialitiesSeedProvider.Otorhinolaryngology);
+            context.Specialities.Add(SpecialitiesSeedProvider.Urology);
+
+            
 
             context.Medics.Add(MedicsSeedProviders.ReproductiveMedic);
             context.Medics.Add(MedicsSeedProviders.GynecologyMedic2);
