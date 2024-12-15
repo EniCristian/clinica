@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ColumnModel } from '../../../data-table/data-table/model/column.model';
+import { SortModel } from '../../../data-table/data-table/model/sort.model';
 
 @Component({
   selector: 'app-specialities-table',
@@ -37,4 +38,11 @@ export class SpecialitiesTableComponent {
     message: 'specialities_modal_delete_message',
     messageParams: 'name',
   };
+
+  getSort(): SortModel {
+    return {
+      order: "asc",
+      parameter: "name"
+    } as SortModel;
+  }
 }

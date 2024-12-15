@@ -6,13 +6,15 @@ import { SpecialitiesCreateEditComponent } from './specialities-create-edit/spec
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: SpecialitiesTableComponent },
   {
-    path: 'create-edit',
-    component: SpecialitiesCreateEditComponent,
-    children: [
-      { path: '', pathMatch: 'full', component: SpecialitiesTableComponent },
-      { path: ':id', pathMatch: 'full', component: SpecialitiesTableComponent },
-    ],
+    path: 'create-edit/:id',
+    pathMatch: 'full',
+    component: SpecialitiesCreateEditComponent
   },
+  {
+    path: 'create-edit',
+    pathMatch: 'full',
+    component: SpecialitiesCreateEditComponent
+  }
 ];
 
 @NgModule({

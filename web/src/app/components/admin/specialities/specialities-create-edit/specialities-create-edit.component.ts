@@ -33,17 +33,17 @@ export class SpecialitiesCreateEditComponent {
     if (this.isEditMode) {
       this.speciality.id = this.route.snapshot.paramMap.get('id')!;
       this.specialityService.edit(this.speciality).subscribe(() => {
-        this.router.navigate(['/manager/manage-specialities']);
+        this.router.navigate(['/specialities']);
       });
     } else {
       this.specialityService.add(this.speciality).subscribe(() => {
-        this.router.navigate(['/manager/manage-specialities']);
+        this.router.navigate(['/specialities']);
       });
     }
   }
 
   onCancel(): void {
-    this.router.navigate(['/manager/manage-specialities']);
+    this.router.navigate(['/specialities/']);
   }
 
   private getFormGroup(): FormGroup {
@@ -92,7 +92,16 @@ export class SpecialitiesCreateEditComponent {
     }
   }
 
+   getSubmitButtonResource(): string {
+    if (this.isEditMode) {
+      return 'general_save';
+    } else {
+      return 'general_add';
+    }
+  }
+
   private isEdit(): boolean {
+    console.log(this.route.snapshot.paramMap.get('id'));
     return this.route.snapshot.paramMap.get('id') != null;
   }
 }

@@ -20,7 +20,7 @@ export class TableHeaderComponent {
   constructor(private router: Router) {}
 
   addNew(): void {
-    this.router.navigate([this.routePrefix + '/new']);
+    this.router.navigate([this.routePrefix]);
   }
 
   refresh(): void {

@@ -9,6 +9,7 @@ public static class SpecialitiesEndpointRouteBuilderExtensions
         var booksEndpoints = endpointRouteBuilder.MapGroup("specialities");
 
         booksEndpoints.MapGet(SpecialitiesHandlers.GetSpecialitiesHandler);
+        booksEndpoints.MapGet("{id}", SpecialitiesHandlers.GetSpecialityById);
         booksEndpoints.MapGet("paginated", SpecialitiesHandlers.GetSpecialitiesPaginatedHandler);
         booksEndpoints.MapPost(SpecialitiesHandlers.Add);
         booksEndpoints.MapPut(SpecialitiesHandlers.Edit);

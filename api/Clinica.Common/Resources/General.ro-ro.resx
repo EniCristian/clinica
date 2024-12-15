@@ -38,4 +38,7 @@
     <data name="cancel" xml:space="preserve">
         <value>Anuleaza</value>
     </data>
+    <data name="save" xml:space="preserve">
+        <value>Salveaza</value>
+    </data>
 </root>

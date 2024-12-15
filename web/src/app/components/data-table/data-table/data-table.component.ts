@@ -13,7 +13,6 @@ import { DatePipe } from '@angular/common';
 import { DeleteConfirmationModalComponent } from '../../../common/delete-confirmation-modal/delete-confirmation-modal.component';
 import { FilterValueModel } from './model/filter-value.model';
 import { ActionModel } from './model/action.model';
-import { Sort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-data-table',
@@ -129,6 +128,8 @@ export class DataTableComponent implements AfterViewInit, OnInit {
   }
 
   edit(row: any): void {
+    console.log(row);
+    console.log(this.routePrefix + '/' + row[this.uniqueIdentifier]);
     this.router.navigate([this.routePrefix + '/' + row[this.uniqueIdentifier]]);
   }
 

@@ -45,4 +45,7 @@
     <data name="cancel" xml:space="preserve">
         <value>Cancel</value>
     </data>
+    <data name="save" xml:space="preserve">
+        <value>Save</value>
+    </data>
 </root>

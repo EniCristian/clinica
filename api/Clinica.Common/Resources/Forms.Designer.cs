@@ -140,5 +140,11 @@ namespace Clinica.Common.Resources {
                 return ResourceManager.GetString("value_validation_normalization_error", resourceCulture);
             }
         }
+        
+        public static string save {
+            get {
+                return ResourceManager.GetString("save", resourceCulture);
+            }
+        }
     }
 }

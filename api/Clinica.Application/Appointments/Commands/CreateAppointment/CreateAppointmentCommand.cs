@@ -16,16 +16,16 @@ public record CreateAppointmentCommand : IRequest
     public string? Message { get; set; }
 }
 
-public class CreateAppointmentCommandHandler(IApplicationDbContext context, IDateTimeService dateTimeService) : IRequestHandler<CreateAppointmentCommand>
+public class CreateAppointmentCommandHandler(IApplicationDbContext context, IDateTimeService dateTimeService)
+    : IRequestHandler<CreateAppointmentCommand>
 {
     public async Task Handle(CreateAppointmentCommand request, CancellationToken cancellationToken)
     {
         var specialist = await context.Medics.FirstOrDefaultAsync(x => x.Id == request.MedicId, cancellationToken);
-        if (specialist == null)
-        {
+        if (specialist == null)        {
             throw new ArgumentException($"Specialist with id {request.MedicId} not found");
         }
-        
+
         var entity = new Appointment
         {
             Name = request.Name,

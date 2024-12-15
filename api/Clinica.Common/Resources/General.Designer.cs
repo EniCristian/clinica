@@ -98,5 +98,11 @@ namespace Clinica.Common.Resources {
                 return ResourceManager.GetString("cancel", resourceCulture);
             }
         }
+        
+        public static string save {
+            get {
+                return ResourceManager.GetString("save", resourceCulture);
+            }
+        }
     }
 }

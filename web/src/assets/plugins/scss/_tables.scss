@@ -384,7 +384,8 @@ tr.group:hover {
   display: flex;
   align-items: center;
   border-color: #e6e9ed;
-  background-color: #ebebee;
+  background-color: inherit;
+  border-bottom: 1px solid #e6e9ed;
   min-width: 800px;
   height: 70px;
 
@@ -528,8 +529,9 @@ tr.group:hover {
   -webkit-box-align: center;
   align-items: center;
   border-color: #e6e9ed;
-  background-color: #f9f9fd;
-  height: 70px;
+  background-color: inherit;
+  border-bottom: 1px solid #e6e9ed;
+    height: 70px;
   min-width: 800px;
 
   .header-buttons {

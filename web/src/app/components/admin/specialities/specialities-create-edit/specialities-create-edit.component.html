@@ -36,7 +36,7 @@
 
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                 <button class="mr-3" [disabled]="!docForm.valid" mat-raised-button color="primary">
-                  {{ "general_add" | translate }}
+                  {{ getSubmitButtonResource() | translate }}
                 </button>
                 <button type="button" mat-button (click)="onCancel()">
                   {{ "general_cancel" | translate }}

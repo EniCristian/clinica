@@ -1,3 +1,4 @@
+using Clinica.Application.Appointments.Queries;
 using Clinica.Application.Common.Models;
 using Clinica.Application.Specialities.Commands.CreateSpeciality;
 using Clinica.Application.Specialities.Commands.EditSpeciality;
@@ -11,7 +12,7 @@ public static class SpecialitiesHandlers
 {
     public static  async Task<IResult> GetSpecialitiesHandler( [FromServices] IMediator mediator)
     {
-        var specialities = await mediator.Send(new GetSpecialitiesQuery());
+        var specialities = await mediator.Send(new SpecialitiesQuery());
         return Results.Ok(specialities);
     } 
     public static  async Task<IResult> GetSpecialitiesPaginatedHandler( [FromServices] IMediator mediator, int pageSize, int pageNumber, string? sortParameter,string? sortOrder)
@@ -37,5 +38,11 @@ public static class SpecialitiesHandlers
     {
         await mediator.Send(command);
         return Results.Ok();
+    }
+
+    public static async Task<IResult> GetSpecialityById([FromServices] IMediator mediator, Guid id)
+    {
+        var speciality = await mediator.Send(new GetSpecialityByIdQuery(id));
+        return Results.Ok(speciality);
     }
 }
