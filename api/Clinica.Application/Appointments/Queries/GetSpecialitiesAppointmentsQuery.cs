@@ -8,7 +8,7 @@ using MediatR;
 
 namespace Clinica.Application.Appointments.Queries;
 
-public class GetAllAppointmentsQuery(PaginatedRequest Request) : IRequest<PaginatedResponse<SpecialityDto>>;
+public class GetSpecialitiesAppointmentsQuery(PaginatedRequest Request) : IRequest<PaginatedResponse<SpecialityDto>>;
 
 internal class GetAllAppointmentsQueryHandler(IApplicationDbContext context, IMapper mapper) : IRequestHandler<GetSpecialitiesPaginatedQuery, PaginatedResponse<SpecialityDto>>
 {

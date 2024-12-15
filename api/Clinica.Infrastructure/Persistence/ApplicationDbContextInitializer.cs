@@ -155,8 +155,6 @@ public class ApplicationDbContextInitializer(
             context.Specialities.Add(SpecialitiesSeedProvider.Otorhinolaryngology);
             context.Specialities.Add(SpecialitiesSeedProvider.Urology);
 
-            
-
             context.Medics.Add(MedicsSeedProviders.ReproductiveMedic);
             context.Medics.Add(MedicsSeedProviders.GynecologyMedic2);
             context.Medics.Add(MedicsSeedProviders.EcographyMedic);

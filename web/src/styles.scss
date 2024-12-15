@@ -11,6 +11,15 @@
 @import "ngx-toastr/toastr";
 @import "ngx-toastr/toastr-bs5-alert";
 @import "assets/plugins/scss/_tables.scss";
+@import "assets/plugins/scss/_card.scss";
+@import "assets/plugins/scss/_modals.scss";
+@import "assets/plugins/scss/_alerts.scss";
+@import "assets/plugins/scss/_badgelistgroupitem.scss";
+@import "assets/plugins/scss/_buttons.scss";
+@import "assets/plugins/scss/_collapse.scss";
+@import "assets/plugins/scss/_dialogs.scss";
+@import "assets/plugins/scss/_mediaobject.scss";
+@import "assets/plugins/scss/_panels.scss";
 
 body {
   color: $body-text;
@@ -116,27 +125,30 @@ mat-form-field {
   letter-spacing: inherit !important;
   text-decoration: inherit !important;
   text-transform: inherit !important;
-  .mat-mdc-text-field-wrapper {
-    padding-left: 0%;
-    background-color: #fff !important;
-    &:hover,
-    &:focus,
-    &:active {
-      background-color: #fff;
-    }
-    border-radius: 0%;
-    .mat-mdc-form-field-flex {
-      height: 44px;
-      .mat-mdc-form-field-infix {
-        padding: 0 0 !important;
-        max-height: 44px;
-        input {
-          height: 44px !important;
-          padding-left: 10px;
+  &:not(.text-area){
+    .mat-mdc-text-field-wrapper {
+      padding-left: 0%;
+      background-color: #fff !important;
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: #fff;
+      }
+      border-radius: 0%;
+      .mat-mdc-form-field-flex {
+        height: 44px;
+        .mat-mdc-form-field-infix {
+          padding: 0 0 !important;
+          max-height: 44px;
+          input {
+            height: 44px !important;
+            padding-left: 10px;
+          }
         }
       }
     }
   }
+
 }
 .mdc-floating-label {
   font-size: 14px !important;

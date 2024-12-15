@@ -32,4 +32,10 @@
     <data name="email" xml:space="preserve">
         <value>Email</value>
     </data>
+    <data name="add" xml:space="preserve">
+        <value>Adauga</value>
+    </data>
+    <data name="cancel" xml:space="preserve">
+        <value>Anuleaza</value>
+    </data>
 </root>

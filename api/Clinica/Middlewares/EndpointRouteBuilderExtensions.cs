@@ -19,7 +19,7 @@ public static class EndpointRouteBuilderExtensions
         return builder;
     }
 
-    public static RouteGroupBuilder MapPut(this RouteGroupBuilder builder, Delegate handler, [StringSyntax("Route")] string pattern)
+    public static RouteGroupBuilder MapPut(this RouteGroupBuilder builder, Delegate handler, [StringSyntax("Route")] string pattern="")
     {
 
         builder.MapPut(pattern, handler);

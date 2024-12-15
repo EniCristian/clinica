@@ -1,4 +1,4 @@
-﻿namespace Paltinul.Business.Dtos.Authentication
+﻿namespace Clinica.Application.Common.Interfaces.Dtos
 {
     public class ChangePasswordDto
     {

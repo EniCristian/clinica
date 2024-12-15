@@ -48,10 +48,6 @@ export class SpecialitiesCreateEditComponent {
 
   private getFormGroup(): FormGroup {
     return new FormGroup({
-      domainId: new FormControl(
-        { value: '', disabled: this.isEditMode },
-        Validators.required
-      ),
       name: new FormControl('', [
         Validators.required,
         NameValidator.normalized,
@@ -90,9 +86,9 @@ export class SpecialitiesCreateEditComponent {
 
   private getTitle(): string {
     if (this.isEditMode) {
-      return 'SPECIALITIES_EDIT_COMPONENT_TITLE';
+      return 'Editeaza specializarea';
     } else {
-      return 'SPECIALITIES_ADD_COMPONENT_TITLE';
+      return 'Adauga o noua specializare';
     }
   }
 

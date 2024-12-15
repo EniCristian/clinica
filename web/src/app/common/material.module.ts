@@ -5,6 +5,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIcon } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [],
@@ -16,6 +17,7 @@ import { MatIcon } from '@angular/material/icon';
     MatNativeDateModule,
     MatDialogModule,
     MatIcon,
+    MatButtonModule,
   ],
   exports: [
     MatFormFieldModule,
@@ -23,6 +25,7 @@ import { MatIcon } from '@angular/material/icon';
     MatDatepickerModule,
     MatNativeDateModule,
     MatDialogModule,
+    MatButtonModule,
     MatIcon,
   ],
 })

@@ -67,4 +67,8 @@ export class HeaderNavigatorComponent implements OnInit, OnDestroy {
       }
     });
   }
+
+  hasSubmenu(route: NavigationRoute): boolean {
+    return route.submenu.length > 0;
+  }
 }

@@ -8,7 +8,7 @@ import { AuthService } from '../../auth/auth.service';
 import { NavigationStart, Router } from '@angular/router';
 import { ContactInformation } from '../../contact/contact-form/contact-information.model';
 import { ContactService } from '../../contact/service/contact.service';
-import { Subject, takeUntil } from 'rxjs';
+import { AuthUser } from '../../auth/model/auth-user.model';
 
 @Component({
   selector: 'app-header',
@@ -19,6 +19,7 @@ export class HeaderComponent {
   links: NavigationRoute[] = [];
   menu: string = '';
   submenu: string = '';
+  activeUser: AuthUser | undefined = undefined;
 
   constructor(
     private authService: AuthService,
@@ -62,6 +63,10 @@ export class HeaderComponent {
             e.roles.length === 0 || this.authService.hasAccess(e.roles)
         )
         .map((ele: NavigationRoute) => ({ ...ele }));
+        if(user)
+        {
+          this.activeUser=user;
+        }
     });
   }
 
@@ -84,5 +89,19 @@ export class HeaderComponent {
       error: (error) =>
         console.error('Failed to load contact information', error),
     });
+  }
+
+  hasSubmenu(route: NavigationRoute): boolean {
+    return route.submenu.length > 0;
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.activeUser = undefined;
+    this.router.navigate(['/']);
+  }
+
+  getRoles(user: AuthUser): string {
+    return user.roles.join(', ');
   }
 }

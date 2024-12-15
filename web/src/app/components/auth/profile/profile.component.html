@@ -1,0 +1,30 @@
+<div class="profile-container">
+    <img 
+      id="avatarButton" 
+      type="button" 
+      (click)="toggleDropdown()" 
+      class="profile-picture" 
+      src="/assets/profile-picture.jpg" 
+      alt="User dropdown"
+    >
+  
+    <!-- Dropdown menu -->
+    <div 
+      id="userDropdown" 
+      [class.hidden]="!isDropdownVisible" 
+      class="dropdown-menu"
+    >
+      <div class="dropdown-header">
+        <div>Bonnie Green</div>
+        <div class="email">bonnie.green22xample.com</div>
+      </div>
+      <ul class="dropdown-list">
+        <li><a href="#" class="dropdown-item">Dashboard</a></li>
+        <li><a href="#" class="dropdown-item">Settings</a></li>
+        <li><a href="#" class="dropdown-item">Earnings</a></li>
+      </ul>
+      <div class="dropdown-footer">
+        <a href="#" (click)="logout()" class="dropdown-item">Sign out</a>
+      </div>
+    </div>
+  </div>

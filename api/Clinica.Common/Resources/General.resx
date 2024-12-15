@@ -39,4 +39,10 @@
     <data name="email" xml:space="preserve">
         <value>Email</value>
     </data>
+    <data name="add" xml:space="preserve">
+        <value>Add</value>
+    </data>
+    <data name="cancel" xml:space="preserve">
+        <value>Cancel</value>
+    </data>
 </root>

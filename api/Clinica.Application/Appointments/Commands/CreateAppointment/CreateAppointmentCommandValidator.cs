@@ -2,7 +2,7 @@ using Clinica.Application.Common.Validators;
 using Clinica.Common.Resources;
 using FluentValidation;
 
-namespace Clinica.Application.Appointments.Commands;
+namespace Clinica.Application.Appointments.Commands.CreateAppointment;
 
 public class CreateAppointmentCommandValidator: AbstractValidator<CreateAppointmentCommand>
 {

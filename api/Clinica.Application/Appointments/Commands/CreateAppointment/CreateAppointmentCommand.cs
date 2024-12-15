@@ -4,7 +4,7 @@ using Clinica.Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Clinica.Application.Appointments.Commands;
+namespace Clinica.Application.Appointments.Commands.CreateAppointment;
 
 public record CreateAppointmentCommand : IRequest
 {

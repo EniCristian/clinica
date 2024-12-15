@@ -60,21 +60,75 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <nav id="nav-menu-container" class="collapse navbar-collapse">
-          <ul class="nav-menu navbar-nav">
-            <li
-              *ngFor="let link of links"
-              [class.active]="menu === link.moduleName"
-            >
-              <a [href]="link.path">{{ link.title | translate }}</a>
-              <ul *ngIf="link.submenu.length > 0">
-                <li *ngFor="let sublink of link.submenu">
-                  <a [href]="sublink.path">{{ sublink.title | translate }}</a>
+
+        <nav id="nav-menu-container">
+          <ul class="nav-menu navbar-nav flex-row align-items-center ms-auto">
+            <li *ngFor="let link of links" [class.active]="menu === link.moduleName"
+              [class]="hasSubmenu(link) ? 'nav-item navbar-dropdown dropdown-user dropdown' : 'nav-item'">
+              <ng-container *ngIf="link.submenu?.length === 0">
+                <a [href]="link.path" class="nav-link">
+                  {{ link.title | translate }}</a>
+              </ng-container>
+              <ng-container *ngIf="link.submenu.length > 0">
+                <a class="nav-link " data-bs-toggle="dropdown" aria-expanded="false">
+                  {{ link.title | translate }}
+                </a>
+                <ul *ngIf="link.submenu.length > 0" class="dropdown-menu">
+                  <li *ngFor="let sublink of link.submenu" class="dropdown-item">
+                    <a [href]="sublink.path">{{ sublink.title | translate }}</a>
+                  </li>
+                </ul>
+              </ng-container>
+            </li>
+            <li class="nav-item navbar-dropdown dropdown-user dropdown" *ngIf="activeUser">
+              <a class="nav-link "  data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="avatar avatar-online">
+                  <img src="../../../../assets/images/1.png" alt="" class="w-px-35 h-auto rounded-circle">
+                </div>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <a class="dropdown-item" href="#">
+                    <div class="d-flex">
+                      <div class="flex-shrink-0 me-3">
+                        <div class="avatar avatar-online">
+                          <img src="../../../../assets/images/1.png" alt="" class="w-px-35 h-auto rounded-circle">
+                        </div>
+                      </div>
+                      <div class="flex-grow-1">
+                        <span class="fw-semibold d-block">{{activeUser.lastName}} {{activeUser.firstName}}</span>
+                        <small class="text-muted">{{getRoles(activeUser)}}</small>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <div class="dropdown-divider"></div>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">
+                    <i class="bx bx-user me-2"></i>
+                    <span class="align-middle">Profilul meu</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">
+                    <i class="bx bx-cog me-2"></i>
+                    <span class="align-middle">Setari</span>
+                  </a>
+                </li>
+                <li>
+                  <div class="dropdown-divider"></div>
+                </li>
+                <li>
+                  <a class="dropdown-item" (click)="logout()">
+                    <i class="bx bx-power-off me-2"></i>
+                    <span class="align-middle">Iesi din cont</span>
+                  </a>
                 </li>
               </ul>
             </li>
           </ul>
-          <!-- <app-language-switcher></app-language-switcher> -->
         </nav>
       </div>
     </div>

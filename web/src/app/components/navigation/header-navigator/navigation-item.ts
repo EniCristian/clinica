@@ -52,6 +52,13 @@ const publicNavigationItems: NavigationRoute[] = [
     roles: [],
     submenu: [],
   },
+  {
+    moduleName: 'auth',
+    path: 'auth',
+    title: 'Logheaza-te',
+    roles: [],
+    submenu: [],
+  }
 ];
 
 const privateNavigationItems: NavigationRoute[] = [
@@ -75,7 +82,7 @@ const privateNavigationItems: NavigationRoute[] = [
     title: 'doctors_title',
     roles: [],
     submenu: [],
-  },
+  }
 ];
 
 class NavigationItemsWrapper {

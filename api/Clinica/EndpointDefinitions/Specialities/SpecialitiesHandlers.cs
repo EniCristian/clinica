@@ -1,4 +1,6 @@
 using Clinica.Application.Common.Models;
+using Clinica.Application.Specialities.Commands.CreateSpeciality;
+using Clinica.Application.Specialities.Commands.EditSpeciality;
 using Clinica.Application.Specialities.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -23,5 +25,17 @@ public static class SpecialitiesHandlers
         };
         var specialities = await mediator.Send(new GetSpecialitiesPaginatedQuery(request));
         return Results.Ok(specialities);
+    }
+        
+    public static async Task<IResult> Add([FromServices] IMediator mediator, CreateSpecialityCommand command)
+    {
+        await mediator.Send(command);
+        return Results.Ok();
+    }
+    
+    public static async Task<IResult> Edit([FromServices] IMediator mediator, EditSpecialityCommand command)
+    {
+        await mediator.Send(command);
+        return Results.Ok();
     }
 }
