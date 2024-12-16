@@ -13,6 +13,7 @@ public static class MedicsEndpointRouteBuilderExtensions
         booksEndpoints.MapPost(MedicsHandlers.Add);
         booksEndpoints.MapPut(MedicsHandlers.Edit);
         booksEndpoints.MapGet("{id}", MedicsHandlers.GetMedicById);
+        booksEndpoints.MapGet("speciality/{specialityId}", MedicsHandlers.GetBySpecialityId);
         booksEndpoints.MapGet(MedicsHandlers.GetMedicsPaginatedAsync, "/paginated");
     }
 }

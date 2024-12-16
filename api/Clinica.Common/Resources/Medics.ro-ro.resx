@@ -14,10 +14,10 @@
     <data name="title" xml:space="preserve">
         <value>Medici</value>
     </data>
-    <data name="our_doctors" xml:space="preserve">
+    <data name="our_medics" xml:space="preserve">
         <value>Medicii noștri</value>
     </data>
-    <data name="our_doctors_description" xml:space="preserve">
+    <data name="our_medics_description" xml:space="preserve">
         <value>Competențele profesioniștilor noștri medicali sunt de neegalat, asigurând rezultate optime pentru pacienți printr-un tratament priceput și un angajament deosebit.</value>
     </data>
     <data name="modal_delete_title" xml:space="preserve">
@@ -25,5 +25,8 @@
     </data>
     <data name="modal_delete_message" xml:space="preserve">
         <value>Sigur doriți să ștergeți specialistul {{lastName}} {{firstName}}?</value>
+    </data>
+    <data name="single_name" xml:space="preserve">
+        <value>Medic</value>
     </data>
 </root>

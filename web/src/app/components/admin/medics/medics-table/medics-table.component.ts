@@ -43,8 +43,8 @@ export class MedicsTableComponent {
   ]);
 
   deleteDialogData = {
-    title: 'doctors_modal_delete_title',
-    message: 'doctors_modal_delete_message',
+    title: 'medics_modal_delete_title',
+    message: 'medics_modal_delete_message',
     messageParams: ['title', 'lastName', 'firstName'],
   };
 

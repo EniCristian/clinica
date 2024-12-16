@@ -1,12 +1,52 @@
-/* 16. Form */
-.appointment-form {
-    input,
-    textarea {
-        width: 100%;
-        padding: 12px 20px;
-        border: none;
+mat-form-field {
+    border-radius: 0%;
+    width: 100%;
+    margin-top: 5px;
+    font: inherit !important;
+    letter-spacing: inherit !important;
+    text-decoration: inherit !important;
+    text-transform: inherit !important;
+    .mat-mdc-form-field-error-wrapper{
+        padding: 0%;
     }
-    .template-btn {
-        width: 100%;
+    .mat-mdc-text-field-wrapper {
+        background-color: #fff !important;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: #fff!important;
+        }
+
+        border-radius: 0%;
     }
+    &:not(.text-area) {
+        .mat-mdc-text-field-wrapper {
+
+            .mat-mdc-form-field-flex {
+                height: 44px;
+                .mat-mdc-form-field-infix {
+                    padding: 0 0 !important;
+                    .mdc-floating-label {
+                        transform: translateY(-90%);
+    
+                        &.mdc-floating-label--float-above {
+                            transform: translateY(-150%) scale(0.75) !important;
+                        }
+                    }
+                    max-height: 44px;
+                    input {
+                        height: 44px !important;
+                    }
+
+                    mat-select {
+                        height: 44px !important;
+                        padding: 10px;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+
 }

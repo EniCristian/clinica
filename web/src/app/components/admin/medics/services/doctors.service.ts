@@ -9,6 +9,7 @@ import { Doctor } from '../../../doctors/doctor/doctor.model';
 })
 export class DoctorsService {
 
+
   private readonly medicsUrl = `${environment.apiBaseUrl}/medics`;
   private readonly headers = new HttpHeaders({
     "Content-Type": "application/json",
@@ -31,5 +32,10 @@ export class DoctorsService {
 
   edit(doctor: Doctor) {
     return this.httpClient.put(`${this.medicsUrl}`, doctor, { headers: this.headers });
+  }
+
+  getMedicsBySpeciality(specialityId: string): Observable<Doctor[]> {
+    return this.httpClient.get<Doctor[]>(`${this.medicsUrl}/speciality/${specialityId}`);
+
   }
 }

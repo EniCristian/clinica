@@ -39,7 +39,7 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>Home.Designer.cs</LastGenOutput>
       </EmbeddedResource>
-      <EmbeddedResource Update="Resources\Doctors.resx">
+      <EmbeddedResource Update="Resources\Medics.resx">
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>Doctors.Designer.cs</LastGenOutput>
       </EmbeddedResource>
@@ -100,10 +100,10 @@
         <AutoGen>True</AutoGen>
         <DependentUpon>Home.resx</DependentUpon>
       </Compile>
-      <Compile Update="Resources\Doctors.Designer.cs">
+      <Compile Update="Resources\Medics.Designer.cs">
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
-        <DependentUpon>Doctors.resx</DependentUpon>
+        <DependentUpon>Medics.resx</DependentUpon>
       </Compile>
       <Compile Update="Resources\Blog.Designer.cs">
         <DesignTime>True</DesignTime>

@@ -37,57 +37,48 @@
         <div class="appointment-form text-center mt-5 mt-lg-0">
           <h3 class="mb-5">{{ "appointment_schedule_now" | translate }}</h3>
           <form [formGroup]="docForm">
-            <div class="form-group">
-              <input
-                type="text"
-                placeholder="{{ 'forms_enter_name' | translate }}"
-                required
-                formControlName="name"
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="text"
-                id="phone_number"
-                placeholder="{{ 'forms_enter_phone_number' | translate }}"
-                required
-                formControlName="phoneNumber"
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="email"
-                placeholder="{{ 'forms_enter_email' | translate }}"
-                required
-                formControlName="email"
-              />
-            </div>
-            <div class="form-group">
-              <mat-form-field>
-                <input
-                  matInput
-                  [matDatepicker]="scheduleDatePicker"
-                  [min]="today"
-                  formControlName="date"
-                  required
-                />
-                <mat-datepicker-toggle
-                  matSuffix
-                  [for]="scheduleDatePicker"
-                ></mat-datepicker-toggle>
+            <mat-form-field class="example-full-width" appearance="fill" >
+              <mat-label>{{ 'forms_enter_name' | translate }}
+              </mat-label>
+              <input matInput formControlName="name" required />
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>{{ 'forms_enter_phone_number' | translate }}
+              </mat-label>
+              <input matInput formControlName="phoneNumber" required />
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>{{ 'forms_enter_email' | translate }}</mat-label>
+              <input matInput formControlName="email" required />
+              <mat-error *ngIf="docForm.get('email')?.hasError('email') && docForm.get('email')?.touched">
+                {{ 'forms_email_validation_invalid' | translate }}
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-select formControlName="specialityId" *ngIf="specialities" placeholder = "{{ 'specialities_single_name' | translate }} *" required (selectionChange)="getMedics($event.value)" >
+                  <mat-option *ngFor="let speciality of specialities" [value]="speciality.id" required>
+                      {{speciality.name}}
+                  </mat-option>
+              </mat-select>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" *ngIf="medics">
+            <mat-select formControlName="medicId" placeholder="{{ 'medics_single_name' | translate }} *" required>
+                <mat-option *ngFor="let medic of medics" [value]="medic.id" required>
+                    {{medic.lastName}} {{medic.firstName}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+              <mat-form-field *ngIf="docForm.get('medicId')?.value" class="example-full-width" appearance="fill">
+                <input matInput [matDatepicker]="scheduleDatePicker" [min]="today" formControlName="date" required />
+                <mat-datepicker-toggle matSuffix [for]="scheduleDatePicker"></mat-datepicker-toggle>
                 <mat-datepicker #scheduleDatePicker></mat-datepicker>
               </mat-form-field>
-            </div>
-            <div class="form-group">
-              <textarea
-                name="message"
-                cols="20"
-                rows="7"
-                placeholder="{{ 'forms_enter_message' | translate }}"
-                formControlName="message"
-              ></textarea>
-            </div>
-            <button class="template-btn" (click)="createAppointment()">
+              <mat-form-field class="example-full-width" appearance="fill" class="text-area">
+
+                <textarea class="description" matInput formControlName="message"
+                    [maxLength]="5000" placeholder="{{ 'forms_enter_message' | translate }}"></textarea>
+            </mat-form-field>
+            <button class="template-btn" (click)="createAppointment()" [disabled]="docForm.invalid && docForm.touched">
               {{ "appointment_schedule_now" | translate }}
             </button>
           </form>

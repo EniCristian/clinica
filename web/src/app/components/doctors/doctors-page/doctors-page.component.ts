@@ -9,10 +9,10 @@ import { BannerItem } from '../../banner/banner-item';
 export class DoctorsPageComponent {
   banner: BannerItem = {
     small: true,
-    title: 'doctors_our_doctors',
+    title: 'medics_our_medics',
     routes: [
       { title: 'home_title', path: '/' },
-      { title: 'doctors_title', path: '/doctors' },
+      { title: 'medics_title', path: '/doctors' },
     ],
   };
 }

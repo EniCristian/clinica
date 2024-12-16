@@ -46,5 +46,11 @@ public static class MedicsHandlers
     {
         var medic = await mediator.Send(new GetMedicByIdQuery(id));
         return Results.Ok(medic);
+    } 
+    
+    public static async Task<IResult> GetBySpecialityId([FromServices] IMediator mediator, Guid specialityId)
+    {
+        var medic = await mediator.Send(new GetMedicsBySpecialityIdQuery(specialityId));
+        return Results.Ok(medic);
     }
 }

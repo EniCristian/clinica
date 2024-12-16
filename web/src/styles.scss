@@ -94,6 +94,11 @@ textarea:focus {
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  
+  &:disabled {
+    background: linear-gradient(to right, #707070, #d4d4d4	);
+    cursor: not-allowed;
+  }
 }
 .into-icon i {
   font-size: 20px;
@@ -116,45 +121,44 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+// mat-form-field {
+//   border-radius: 0%;
+//   width: 100%;
+//   margin-top: 5px;
+//   font: inherit !important;
+//   letter-spacing: inherit !important;
+//   text-decoration: inherit !important;
+//   text-transform: inherit !important;
+//   &:not(.text-area){
+//     .mat-mdc-text-field-wrapper {
+//       background-color: #fff !important;
+//       &:hover,
+//       &:focus,
+//       &:active {
+//         background-color: #fff;
+//       }
+//       border-radius: 0%;
+//       .mat-mdc-form-field-flex {
+//         height: 44px;
+//         .mat-mdc-form-field-infix {
+//           padding: 0 0 !important;
+//           max-height: 44px;
+//           input {
+//             height: 44px !important;
+//             padding-left: 10px;
+//           }
+//           mat-select{
+//             height: 44px !important;
+//             padding: 10px;
+//             font-size: 14px;
+//           }
+//         }
+//       }
+//     }
+//   }
 
-mat-form-field {
-  border-radius: 0%;
-  width: 100%;
-  margin-top: 5px;
-  font: inherit !important;
-  letter-spacing: inherit !important;
-  text-decoration: inherit !important;
-  text-transform: inherit !important;
-  &:not(.text-area){
-    .mat-mdc-text-field-wrapper {
-      padding-left: 0%;
-      background-color: #fff !important;
-      &:hover,
-      &:focus,
-      &:active {
-        background-color: #fff;
-      }
-      border-radius: 0%;
-      .mat-mdc-form-field-flex {
-        height: 44px;
-        .mat-mdc-form-field-infix {
-          padding: 0 0 !important;
-          max-height: 44px;
-          input {
-            height: 44px !important;
-            padding-left: 10px;
-          }
-          mat-select{
-            height: 44px !important;
-            padding: 10px;
-            font-size: inherit
-          }
-        }
-      }
-    }
-  }
+// }
 
-}
 .mdc-floating-label {
   font-size: 14px !important;
   margin: auto;

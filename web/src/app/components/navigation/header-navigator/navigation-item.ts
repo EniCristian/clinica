@@ -27,7 +27,7 @@ const publicNavigationItems: NavigationRoute[] = [
   {
     moduleName: 'doctors',
     path: 'doctors',
-    title: 'doctors_title',
+    title: 'medics_title',
     roles: [],
     submenu: [],
   },
@@ -79,7 +79,7 @@ const privateNavigationItems: NavigationRoute[] = [
   {
     moduleName: 'medics',
     path: 'medics',
-    title: 'doctors_title',
+    title: 'medics_title',
     roles: [],
     submenu: [],
   }
