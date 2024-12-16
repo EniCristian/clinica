@@ -2,6 +2,7 @@ using Clinica.Application.Common.Models;
 using Clinica.Application.Medics;
 using Clinica.Application.Medics.Commands.CreateMedic;
 using Clinica.Application.Medics.Commands.UpdateMedic;
+using Clinica.Application.Medics.Queries;
 using Clinica.Application.Specialities.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

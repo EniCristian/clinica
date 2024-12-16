@@ -5,28 +5,20 @@ using Clinica.Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Clinica.Application.Medics;
+namespace Clinica.Application.Medics.Queries;
 
 public record GetMedicByIdQuery(Guid Id) : IRequest<MedicDto>;
 
-internal class GetMedicByIdQueryHandler : IRequestHandler<GetMedicByIdQuery, MedicDto>
+internal class GetMedicByIdQueryHandler(IApplicationDbContext context, IMapper mapper)
+    : IRequestHandler<GetMedicByIdQuery, MedicDto>
 {
-    private readonly IApplicationDbContext _context;
-    private readonly IMapper _mapper;
-
-    public GetMedicByIdQueryHandler(IApplicationDbContext context, IMapper mapper)
-    {
-        _context = context;
-        _mapper = mapper;
-    }
-
     public async Task<MedicDto> Handle(GetMedicByIdQuery request, CancellationToken cancellationToken)
     {
-        var medic = await _context.Medics.Include(x => x.Speciality).FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
+        var medic = await context.Medics.Include(x => x.Speciality).FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
         if (medic == null)
         {
             throw new NotFoundException(nameof(Medic), request.Id);
         }
-        return _mapper.Map<MedicDto>(medic);
+        return mapper.Map<MedicDto>(medic);
     }
 }

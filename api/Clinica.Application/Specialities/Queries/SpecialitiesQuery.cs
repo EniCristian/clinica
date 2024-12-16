@@ -4,7 +4,7 @@ using Clinica.Application.Medics;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Clinica.Application.Appointments.Queries;
+namespace Clinica.Application.Specialities.Queries;
 
 public class SpecialitiesQuery() : IRequest<IEnumerable<SpecialityDto>>;
 

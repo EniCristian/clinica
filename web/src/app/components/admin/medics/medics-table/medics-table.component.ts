@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ColumnModel } from '../../../data-table/data-table/model/column.model';
 import { ActionModel } from '../../../data-table/data-table/model/action.model';
 import { Router } from '@angular/router';
+import { SortModel } from '../../../data-table/data-table/model/sort.model';
 
 @Component({
   selector: 'app-medics-table',
@@ -67,5 +68,11 @@ export class MedicsTableComponent {
         state: { specialistName, specialistEmail },
       }
     );
+  }
+  getSort(): SortModel {
+    return {
+      order: "asc",
+      parameter: "lastName"
+    } as SortModel;
   }
 }

@@ -4,7 +4,7 @@ using Clinica.Application.Common.Interfaces;
 using Clinica.Application.Common.Models;
 using MediatR;
 
-namespace Clinica.Application.Medics;
+namespace Clinica.Application.Medics.Queries;
 
 public record MedicsPaginatedQuery(PaginatedRequest Request) : IRequest<PaginatedResponse<MedicDto>>;
 
