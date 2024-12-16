@@ -8,4 +8,6 @@ public class Speciality : BaseEntity
     public string Description { get; set; }
     public string? ImageUrl { get; set; }
     public uint ConsultationDurationInMinutes { get; set; }
+    
+    public virtual IEnumerable<Medic> Medics { get; set; }
 }

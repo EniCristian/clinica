@@ -9,5 +9,6 @@ public static class AppointmentEndpoints
         var booksEndpoints = endpointRouteBuilder.MapGroup("appointment");
         
         booksEndpoints.MapGet(AppointmentsHandlers.GetAll);
+        booksEndpoints.MapPost(AppointmentsHandlers.Add);
     }
 }

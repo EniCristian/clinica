@@ -1,5 +1,6 @@
 using Clinica.Application.Common.Interfaces;
 using Clinica.Application.Common.Services;
+using Clinica.Common.Exceptions;
 using Clinica.Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -22,8 +23,9 @@ public class CreateAppointmentCommandHandler(IApplicationDbContext context, IDat
     public async Task Handle(CreateAppointmentCommand request, CancellationToken cancellationToken)
     {
         var specialist = await context.Medics.FirstOrDefaultAsync(x => x.Id == request.MedicId, cancellationToken);
-        if (specialist == null)        {
-            throw new ArgumentException($"Specialist with id {request.MedicId} not found");
+        if (specialist == null)
+        {
+            throw new NotFoundException(nameof(Medic), request.MedicId);
         }
 
         var entity = new Appointment

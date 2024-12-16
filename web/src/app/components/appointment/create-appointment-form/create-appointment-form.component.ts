@@ -45,7 +45,7 @@ export class CreateAppointmentFormComponent implements OnInit {
       });
   }
   private initSpecialities(): void {
-    this.specialitiesService.getSpecialities().subscribe((specialities) => {
+    this.specialitiesService.getWithActiveMedics().subscribe((specialities) => {
       this.specialities = specialities;
     });
   }

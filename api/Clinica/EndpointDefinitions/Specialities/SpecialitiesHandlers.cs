@@ -45,4 +45,10 @@ public static class SpecialitiesHandlers
         var speciality = await mediator.Send(new GetSpecialityByIdQuery(id));
         return Results.Ok(speciality);
     }
+    
+    public static async Task<IResult> GetSpecialitiesWithActiveMedics([FromServices] IMediator mediator)
+    {
+        var specialities = await mediator.Send(new GetSpecialitiesWithActiveMedicsQuery());
+        return Results.Ok(specialities);
+    }
 }

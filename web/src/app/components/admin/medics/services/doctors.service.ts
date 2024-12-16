@@ -36,6 +36,6 @@ export class DoctorsService {
 
   getMedicsBySpeciality(specialityId: string): Observable<Doctor[]> {
     return this.httpClient.get<Doctor[]>(`${this.medicsUrl}/speciality/${specialityId}`);
-
   }
+
 }

@@ -38,4 +38,10 @@ export class SpecialitiesService {
       `${environment.apiBaseUrl}/specialities/${specialityId}`
     );
   }
+
+  getWithActiveMedics(): Observable<Speciality[]> {
+    return this.httpClient.get<Speciality[]>(
+      `${environment.apiBaseUrl}/specialities/active-medics`
+    );
+  }
 }
