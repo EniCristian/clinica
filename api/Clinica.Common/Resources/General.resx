@@ -48,4 +48,7 @@
     <data name="save" xml:space="preserve">
         <value>Save</value>
     </data>
+    <data name="consultation_price" xml:space="preserve">
+        <value>Consultation price (lei)</value>
+    </data>
 </root>

@@ -12,7 +12,7 @@ internal class SpecialitiesQueryHandler(IApplicationDbContext context, IMapper m
 {
     public async Task<IEnumerable<SpecialityDto>> Handle(SpecialitiesQuery request, CancellationToken cancellationToken)
     {
-        var specialities = await context.Specialities.ToListAsync(cancellationToken);
+        var specialities = await context.Specialities.OrderBy(p=>p.Name).ToListAsync(cancellationToken);
         
         return mapper.Map<IEnumerable<SpecialityDto>>(specialities);
     }

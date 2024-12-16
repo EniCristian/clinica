@@ -1,6 +1,12 @@
 interface Doctor {
+  id: string;
+  specialityId: string;
+  consultationPrice: number;
   firstName: string;
   lastName: string;
+  description: string;
+  email: string;
+  phoneNumber: string;
   imageUrl: string;
   speciality: Speciality;
   facebookLink: string | undefined;
@@ -9,6 +15,7 @@ interface Doctor {
   pinterestLink: string | undefined;
 }
 interface Speciality {
+  id: string;
   name: string;
   description: string;
 }

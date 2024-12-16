@@ -144,6 +144,11 @@ mat-form-field {
             height: 44px !important;
             padding-left: 10px;
           }
+          mat-select{
+            height: 44px !important;
+            padding: 10px;
+            font-size: inherit
+          }
         }
       }
     }

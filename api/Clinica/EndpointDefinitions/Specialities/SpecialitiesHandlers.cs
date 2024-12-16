@@ -10,7 +10,7 @@ namespace Clinica.EndpointDefinitions.Specialities;
 
 public static class SpecialitiesHandlers
 {
-    public static  async Task<IResult> GetSpecialitiesHandler( [FromServices] IMediator mediator)
+    public static  async Task<IResult> GetAllSpecialities( [FromServices] IMediator mediator)
     {
         var specialities = await mediator.Send(new SpecialitiesQuery());
         return Results.Ok(specialities);

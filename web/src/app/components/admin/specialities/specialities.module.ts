@@ -11,9 +11,7 @@ import { SpecialitiesCreateEditComponent } from './specialities-create-edit/spec
   imports: [
     CommonsModule,
     DataTableModule,
-    SpecialitiesRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
+    SpecialitiesRoutingModule
   ],
 })
 export class SpecialitiesModule {}

@@ -9,11 +9,11 @@ import { Injectable } from '@angular/core';
 })
 export class SpecialitiesService {
   private readonly doctorsUrl = `${environment.apiBaseUrl}/specialities`;
-private readonly headers = new HttpHeaders({
-  "Content-Type": "application/json",
-  "Accept": "application/json"
-})
-  constructor(private httpClient: HttpClient) {}
+  private readonly headers = new HttpHeaders({
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+  })
+  constructor(private httpClient: HttpClient) { }
 
   getSpecialities(): Observable<Speciality[]> {
     return this.httpClient.get<Speciality[]>(this.doctorsUrl);

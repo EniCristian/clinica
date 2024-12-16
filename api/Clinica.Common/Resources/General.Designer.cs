@@ -104,5 +104,11 @@ namespace Clinica.Common.Resources {
                 return ResourceManager.GetString("save", resourceCulture);
             }
         }
+        
+        public static string consultation_price {
+            get {
+                return ResourceManager.GetString("consultation_price", resourceCulture);
+            }
+        }
     }
 }

@@ -14,7 +14,7 @@ export class DoctorsListComponent {
   }
 
   loadDoctors() {
-    this.http.getDoctors().subscribe({
+    this.http.getMedics().subscribe({
       next: (data: Doctor[] | undefined) => {
         this.doctors = data ? data : undefined;
       },

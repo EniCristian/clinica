@@ -21,10 +21,10 @@
         <value>Descriere</value>
     </data>
     <data name="name" xml:space="preserve">
-        <value>Nume</value>
+        <value>Prenume</value>
     </data>
     <data name="surname" xml:space="preserve">
-        <value>Prenume</value>
+        <value>Nume</value>
     </data>
     <data name="phone_number" xml:space="preserve">
         <value>Numar de telefon</value>
@@ -40,5 +40,8 @@
     </data>
     <data name="save" xml:space="preserve">
         <value>Salveaza</value>
+    </data>
+    <data name="consultation_price" xml:space="preserve">
+        <value>Pretul consultatiei (lei)</value>
     </data>
 </root>
