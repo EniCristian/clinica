@@ -1,4 +1,4 @@
-<header class="header-area">
+<header class="header-area" *ngIf="contactInformation">
   <div class="header-top">
     <div class="container">
       <div class="row">
@@ -6,11 +6,13 @@
           <h6 class="me-3">
             <span class="me-2"><i class="fa fa-mobile"></i></span>
             {{ "contact_call_now" | translate }}!
-            {{ contactInformation?.phoneNumber }}
+            <a href="tel:{{ contactInformation?.phoneNumber }}">{{ contactInformation?.phoneNumber }}</a>
           </h6>
           <h6 class="me-3">
             <span class="me-2"><i class="fa fa-envelope-o"></i></span>
+            <a href="mailto:{{ contactInformation?.email }}">
             {{ contactInformation?.email }}
+            </a>
           </h6>
           <h6>
             <span class="me-2"><i class="fa fa-map-marker"></i></span>

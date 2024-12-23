@@ -101,7 +101,6 @@ export class SpecialitiesCreateEditComponent {
   }
 
   private isEdit(): boolean {
-    console.log(this.route.snapshot.paramMap.get('id'));
     return this.route.snapshot.paramMap.get('id') != null;
   }
 }

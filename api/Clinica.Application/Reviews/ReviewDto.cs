@@ -11,8 +11,8 @@ public class ReviewDto: IMapFrom<PatientReview>
 
 public class PatientDto: IMapFrom<Patient>
 {
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public string ImageUrl { get; set; }
-    public string Job { get; set; }
+    public Guid Id { get; set; }
+    public required string FullName { get; set; }
+    public string? Email { get; set; }
+    public string? PhoneNumber { get; set; }
 }

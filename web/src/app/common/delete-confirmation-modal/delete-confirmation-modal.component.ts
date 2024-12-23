@@ -19,15 +19,12 @@ export class DeleteConfirmationModalComponent {
   ) {
     if (data) {
       if (data.message) {
-        console.log(data.message);
         this.messageResource = data.message;
       }
       if (data.messageParams) {
-        console.log(data.messageParams);
         this.messageParams = data.messageParams;
       }
       if (data.title) {
-        console.log(data.title);
         this.title = data.title;
       }
       if (data.confirmButtonText) {

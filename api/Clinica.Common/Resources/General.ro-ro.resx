@@ -44,4 +44,7 @@
     <data name="consultation_price" xml:space="preserve">
         <value>Pretul consultatiei (lei)</value>
     </data>
+    <data name="date" xml:space="preserve">
+        <value>Data</value>
+    </data>
 </root>

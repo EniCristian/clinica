@@ -90,7 +90,6 @@ export class AuthService {
   }
 
   private getUserFromPayload(userInfo: any): AuthUser | null {
-    console.log('userInfo', userInfo);
     try {
       const authUser: AuthUser = {
         roles: this.getRolesArray(userInfo['role']),

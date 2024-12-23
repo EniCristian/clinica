@@ -26,7 +26,6 @@ export class DoctorsService {
   }
 
   add(doctor: Doctor): Observable<any> {
-    console.log(doctor);
     return this.httpClient.post(this.medicsUrl, JSON.stringify(doctor), { headers: this.headers });
   }
 

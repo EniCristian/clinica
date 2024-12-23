@@ -1,4 +1,5 @@
 using Clinica.Application.Appointments.Commands.CreateAppointment;
+using Clinica.Application.Appointments.Queries;
 using Clinica.Application.Common.Models;
 using Clinica.Application.Specialities.Commands.EditSpeciality;
 using Clinica.Application.Specialities.Queries;
@@ -18,8 +19,14 @@ public static class AppointmentsHandlers
             SortOrder = sortOrder,
             SortParameter = sortParameter
         };
-        var appointments = await mediator.Send(new GetSpecialitiesPaginatedQuery(request));
+        var appointments = await mediator.Send(new AppointmentsPaginatedQuery(request));
         return Results.Ok(appointments);
+    }
+    
+    public static async Task<IResult> GetById([FromServices] IMediator mediator, Guid id)
+    {
+        var appointment = await mediator.Send(new AppointmentByIdQuery(id));
+        return Results.Ok(appointment);
     }
         
     public static async Task<IResult> Add([FromServices] IMediator mediator, CreateAppointmentCommand command)

@@ -51,4 +51,7 @@
     <data name="consultation_price" xml:space="preserve">
         <value>Consultation price (lei)</value>
     </data>
+    <data name="date" xml:space="preserve">
+        <value>Date</value>
+    </data>
 </root>

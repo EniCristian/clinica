@@ -19,7 +19,6 @@ private readonly headers = new HttpHeaders({
   createAppointment(
     model: AddAppointmentModel
   ): Observable<AddAppointmentModel> {
-    console.log(model);
     return this.httpClient.post<AddAppointmentModel>(
       this.appointmentsUrl,
       model,

@@ -128,8 +128,6 @@ export class DataTableComponent implements AfterViewInit, OnInit {
   }
 
   edit(row: any): void {
-    console.log(row);
-    console.log(this.routePrefix + '/' + row[this.uniqueIdentifier]);
     this.router.navigate([this.routePrefix + '/' + row[this.uniqueIdentifier]]);
   }
 
@@ -152,7 +150,7 @@ export class DataTableComponent implements AfterViewInit, OnInit {
         this.deleteDialogData.messageParams.forEach((element: string) => {
           messageParams = {
             ...messageParams,
-            [element]: row[element],
+            [element]: this.getValueByName(row, element),
           };
         });
       } else {
@@ -161,9 +159,17 @@ export class DataTableComponent implements AfterViewInit, OnInit {
             row[this.deleteDialogData.messageParams],
         };
       }
+
       return { ...this.deleteDialogData, messageParams };
     }
     return this.deleteDialogData;
+  }
+
+  private getValueByName(row: any, element: string) {
+    if (element.includes('.')) {
+      return this.getNestedProperty(row, element);
+    }
+    return row[element];
   }
 
   refresh(): void {
@@ -293,7 +299,6 @@ export class DataTableComponent implements AfterViewInit, OnInit {
         columnProperties.forEach((property) => {
           result = `${result} ${this.getNestedProperty(row, property)}`;
         });
-
         return result;
       }
       if (column.includes('.')) {

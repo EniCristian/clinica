@@ -1,1 +1,16 @@
-<p>appointments-table works!</p>
+<div class="container admin-page">
+    <div class="row">
+      <app-data-table
+        [title]="'appointment_title'"
+        [routePrefix]="'/appointments/create-edit'"
+        [columns]="columns"
+        [resourceUrl]="'/appointments/paginated'"
+        [customResourceDeleteUrl]="'/appointments'"
+        [startingPageSize]="5"
+        [deleteDialogData]="deleteDialogData"
+        [sort]= "getSort()"
+      >
+      </app-data-table>
+    </div>
+  </div>
+  

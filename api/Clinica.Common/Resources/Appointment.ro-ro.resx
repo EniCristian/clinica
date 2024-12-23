@@ -29,4 +29,10 @@
     <data name="learn_more" xml:space="preserve">
         <value>Citeste mai mult</value>
     </data>
+    <data name="modal_delete_title" xml:space="preserve">
+        <value>Sterge programarea</value>
+    </data>
+    <data name="modal_delete_message" xml:space="preserve">
+        <value>Sigur doriti sa stergeti programarea lui {{patient.fullName}}?</value>
+    </data>
 </root>

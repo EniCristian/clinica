@@ -36,4 +36,10 @@
     <data name="learn_more" xml:space="preserve">
         <value>Learn more</value>
     </data>
+    <data name="modal_delete_message" xml:space="preserve">
+        <value>Are you sure you want to delete appointment of {{fullName}}?</value>
+    </data>
+    <data name="modal_delete_title" xml:space="preserve">
+        <value>Delete appointment</value>
+    </data>
 </root>

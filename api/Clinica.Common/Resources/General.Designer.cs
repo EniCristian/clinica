@@ -110,5 +110,11 @@ namespace Clinica.Common.Resources {
                 return ResourceManager.GetString("consultation_price", resourceCulture);
             }
         }
+        
+        public static string date {
+            get {
+                return ResourceManager.GetString("date", resourceCulture);
+            }
+        }
     }
 }

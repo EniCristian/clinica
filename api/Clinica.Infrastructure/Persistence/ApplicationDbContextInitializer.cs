@@ -60,10 +60,7 @@ public class ApplicationDbContextInitializer(
         {
             var femalePatient = new Patient()
             {
-                FirstName = "Maria",
-                LastName = "Didenco",
-                ImageUrl = "patient1.jpg",
-                Job = "Profesoara",
+                FullName = "Maria Didenco",
                 PatientReviews = new List<PatientReview>()
                 {
                     new()
@@ -75,10 +72,7 @@ public class ApplicationDbContextInitializer(
 
             var malePatient = new Patient()
             {
-                FirstName = "Andrei",
-                LastName = "Ene",
-                ImageUrl = "patient2.jpg",
-                Job = "Programator",
+                FullName = "Andrei Ene",
                 PatientReviews = new List<PatientReview>()
                 {
                     new()

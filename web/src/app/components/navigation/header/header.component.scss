@@ -13,6 +13,13 @@
   z-index: 1;
   h6 {
     margin-top: 6px;
+    a{
+      color: $body-text;
+      @include transition(all 0.3s ease-in-out);
+      &:hover {
+        color: $primary-color;
+      }
+    }
     i {
       font-size: 18px;
       position: relative;

@@ -30,13 +30,16 @@ public class CreateAppointmentCommandHandler(IApplicationDbContext context, IDat
 
         var entity = new Appointment
         {
-            Name = request.Name,
             MedicId = request.MedicId,
-            PhoneNumber = request.PhoneNumber,
-            Email = request.Email,
             Date = request.Date.ToUniversalTime(),
             Message = request.Message,
-            Created = dateTimeService.NowUtc
+            Created = dateTimeService.NowUtc,
+            Patient = new Patient
+            {
+                FullName = request.Name,
+                PhoneNumber = request.PhoneNumber,
+                Email = request.Email
+            }
         };
 
         context.Appointments.Add(entity);

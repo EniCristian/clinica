@@ -6,9 +6,7 @@ public class Appointment: BaseEntity
 {
     public Guid MedicId { get; set; }
     public virtual Medic Medic { get; set; }
-    public string Name { get; set; }
-    public string PhoneNumber { get; set; }
-    public string Email { get; set; }
+    public required Patient Patient { get; set; }
     public DateTime Date { get; set; }
     public string? Message { get; set; }
     public DateTime Created { get; set; }
