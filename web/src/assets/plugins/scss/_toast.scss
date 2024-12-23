@@ -1,0 +1,18 @@
+.toast-container {
+    border-radius: 0.5em;
+    border: none;
+
+    .toast-success {
+        border: none;
+        color: #fff;
+        background-color: rgba(113, 221, 55, .85) !important;
+
+        .toast-title {
+            color: #fff;
+        }
+
+        .toast-message {
+            color: #fff;
+        }
+    }
+}

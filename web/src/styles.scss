@@ -1,4 +1,3 @@
-@import "../src/styling/functions";
 @import "../src/styling/variable";
 @import "../src/styling/base";
 @import "../src/styling/btn";
@@ -21,7 +20,8 @@
 @import "assets/plugins/scss/_dialogs.scss";
 @import "assets/plugins/scss/_mediaobject.scss";
 @import "assets/plugins/scss/_panels.scss";
-@import "assets/plugins/scss/_toasts.scss";
+@import "assets/plugins/scss/_toast.scss";
+
 
 body {
   color: $body-text;
